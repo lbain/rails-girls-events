@@ -21,6 +21,9 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
   end
 
+  def thanks
+  end
+
   def confirmation
   end
 
