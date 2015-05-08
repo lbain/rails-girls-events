@@ -10,4 +10,10 @@ class UsersController < ApplicationController
 
   def confirmation
   end
+
+  private
+  def user_params
+      params.permit(:name, :email, :track, :age, :previous_attendant, :programming_experience, :reason, :tshirt_size, :tshirt_color, :status)
+  end
+
 end
