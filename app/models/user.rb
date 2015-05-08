@@ -6,7 +6,6 @@
 #  name                   :string
 #  email                  :string
 #  track                  :string
-#  age                    :integer
 #  previous_attendant     :boolean
 #  programming_experience :text
 #  reason                 :text
@@ -15,6 +14,7 @@
 #  status                 :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  under_18               :boolean
 #
 
 class User < ActiveRecord::Base
