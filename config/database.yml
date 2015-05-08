@@ -24,8 +24,7 @@ default: &default
 development:
   <<: *default
   database: rails-girls-events_development
-
-host: localhost
+  host: localhost
   username: amysimmons
 
   # The specified database role being used to connect to postgres.
