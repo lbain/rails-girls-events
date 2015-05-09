@@ -13,7 +13,6 @@
  *= require font-awesome
  */
 
-@import 'compass';
 @import 'legacy/960';
 @import 'legacy/railsgirls';
 @import 'legacy/reset';

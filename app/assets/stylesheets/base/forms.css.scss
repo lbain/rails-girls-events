@@ -21,3 +21,8 @@ form fieldset {
   background-color: $brand-color;
   color: white;
 }
+
+input, textarea {
+  background-color: white;
+  border: 1px solid #ccc;
+}

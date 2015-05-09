@@ -1,5 +1,9 @@
 @import 'variables';
 
+body {
+  min-width: auto;
+}
+
 .container_12 {
   box-sizing: border-box;
   max-width: none;
