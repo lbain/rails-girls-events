@@ -13,4 +13,4 @@
 /tmp
 .DS_Store
 *.DS_STORE
-
+config/database.yml
