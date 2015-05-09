@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'acts_as_commentable'
 
+gem 'mandrill_mailer'
+
 gem 'font-awesome-rails'
 
 # Use ActiveModel has_secure_password

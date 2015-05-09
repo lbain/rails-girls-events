@@ -19,10 +19,6 @@ a, a:visited, a:focus, a:active, a:hover{
     outline:0 none !important;
 }
 
-#background {
-  background:url(../images/header.png) no-repeat 50% 180px;
-}
-
 #poster {
   height:380px;
   width:100%;
