@@ -5,19 +5,18 @@
 
 <h2>Admin votes</h2>
 
-<%= link_to vote_path(@user.id, :vote_type => 'up') do %>
+<%= link_to vote_path(user_id: @user.id, vote_type: 'up') do %>
   <i class="fa fa-thumbs-o-up"></i><span class='up-count'><%=@user.count_up_votes%></span>
 <%end%>
 
-
-<%= link_to vote_path(@user.id, :vote_type => 'down') do %>
+<%= link_to vote_path(user_id: @user.id, vote_type: 'down') do %>
   <i class="fa fa-thumbs-o-down"></i><span class='up-count'><%=@user.count_down_votes%></span>
 <%end%>
 
 <h2>Admin comments</h2>
 
-<%= link_to 'Approve', status_path(@user.id, :status => 'approved') %>
-<%= link_to 'Reject', status_path(@user.id, :status => 'rejected') %>
-<%= link_to 'Defer', status_path(@user.id, :status => 'deferred') %>
+<%= link_to 'Approve', admin_status_path(@user.id, :status => 'approved') %>
+<%= link_to 'Reject', admin_status_path(@user.id, :status => 'rejected') %>
+<%= link_to 'Defer', admin_status_path(@user.id, :status => 'deferred') %>
 
 </div>

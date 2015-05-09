@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      UserMailer.application_recieved(@user).deliver
+      @user.send_application_thanks
     end
     render :new
   end
@@ -32,7 +32,6 @@ class UsersController < ApplicationController
   def update_user_status
     @user = User.find params[:id]
     @user.update(user_status: params[:status])
-    redirect_to user_status_thanks_path
   end
 
   def update_admin_status

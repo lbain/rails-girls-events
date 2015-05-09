@@ -4,9 +4,10 @@ class VotesController < ApplicationController
   end
 
   def create
-    # binding.pry
     @vote = Vote.new vote_params.merge({admin_id: @current_user.id})
     @vote.save
+    user = User.find(vote_params[:user_id])
+    user.send_invitation
     redirect_to user_path(params[:user_id])
   end
 

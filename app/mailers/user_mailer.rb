@@ -26,8 +26,8 @@ class UserMailer < MandrillMailer::TemplateMailer
       vars: {
         'NAME' => user.name,
         'SUBJECT' => 'Welcome to Rails Girls!',
-        'ACCEPT_LINK' => user_status_path(user, 'accept'),
-        'DELCLINE_LINK' => user_status_path(user, 'decline'),
+        'ACCEPT_LINK' => user_status_url(user, 'accepted', port: 3000),
+        'DELCLINE_LINK' => user_status_url(user, 'declined', port: 3000),
       },
       important: true,
       inline_css: true)
