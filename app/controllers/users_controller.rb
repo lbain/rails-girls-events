@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new user_params
+    @user = User.new user_params.merge(admin_status: 'applied')
     if @user.save
       @user.send_application_thanks
     end
@@ -13,11 +13,13 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @admin_page = true
   end
 
   def show
     @user = User.find params[:id]
     @admin = @current_user
+    @admin_page = true
   end
 
   def thanks
