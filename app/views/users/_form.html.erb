@@ -5,7 +5,7 @@
       <div class="steps-form__step__field-group">
         <label for="name">Name</label>
         <div class="steps-form__step__field">
-          <input type="text" name="name" />
+          <input type="text" name="user[name]" />
         </div>
       </div>
     </div>
@@ -13,7 +13,7 @@
       <div class="steps-form__step__field-group">
         <label for="email">Email</label>
         <div class="steps-form__step__field">
-          <input type="text" name="email" />
+          <input type="text" name="user[email]" />
         </div>
       </div>
     </div>
@@ -21,8 +21,8 @@
       <div class="steps-form__step__field-group">
         <label for="age">Age</label>
         <div class="steps-form__step__field">
-          <input type="radio" name="under_18" value="yes" />
-          <input type="radio" name="under_18" value="no" />
+          <input type="radio" name="user[under_18]" value="yes" />
+          <input type="radio" name="user[under_18]" value="no" />
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@
       <div class="steps-form__step__field-group">
         <label for="track">Track</label>
         <div class="steps-form__step__field">
-          <input type="text" name="track" />
+          <input type="text" name="user[track]" />
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
       <div class="steps-form__step__field-group">
         <label for="previous_attendant">Have you attended RailsGirls events before?</label>
         <div class="steps-form__step__field">
-          <input type="checkbox" name="previous_attendant" />
+          <input type="checkbox" name="user[previous_attendant]" />
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
       <div class="steps-form__step__field-group">
         <label for="programming_experience">Programming experience</label>
         <div class="steps-form__step__field">
-          <textarea name="programming_experience"></textarea>
+          <textarea name="user[programming_experience]"></textarea>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
       <div class="steps-form__step__field-group">
         <label for="reason">Why would you like to come?</label>
         <div class="steps-form__step__field">
-          <textarea name="reason"></textarea>
+          <textarea name="user[reason]"></textarea>
         </div>
       </div>
     </div>
@@ -67,11 +67,11 @@
       <div class="steps-form__step__field-group">
         <label for="tshirt_size">T-shirt size</label>
         <div class="steps-form__step__field">
-          <input type="radio" name="tshirt_size" value="xs" />
-          <input type="radio" name="tshirt_size" value="s" />
-          <input type="radio" name="tshirt_size" value="m" />
-          <input type="radio" name="tshirt_size" value="l" />
-          <input type="radio" name="tshirt_size" value="xl" />
+          <input type="radio" name="user[tshirt_size]" value="xs" />
+          <input type="radio" name="user[tshirt_size]" value="s" />
+          <input type="radio" name="user[tshirt_size]" value="m" />
+          <input type="radio" name="user[tshirt_size]" value="l" />
+          <input type="radio" name="user[tshirt_size]" value="xl" />
         </div>
       </div>
     </div>
@@ -79,13 +79,13 @@
       <div class="steps-form__step__field-group">
         <label for="tshirt_color">T-shirt colour</label>
         <div class="steps-form__step__field">
-          <input type="text" name="tshirt_color" />
+          <input type="text" name="user[tshirt_color]" />
         </div>
       </div>
     </div>
     <div class="steps-form__step__fields">
       <div class="steps-form__step__field-group">
-        <input type="submit" name="submit" />
+        <input type="submit" name="user[submit]" />
       </div>
     </div>
   </fieldset>

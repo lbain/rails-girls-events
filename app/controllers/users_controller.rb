@@ -5,12 +5,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-    if @user.save  
-        # session[:username] = @user.username
-        redirect_to root_path
-    else
-        render :new
-    end
+    @user.save
+    render :new
   end
 
   def index
@@ -35,7 +31,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-      params.permit(:name, :email, :track, :under_18, :previous_attendant, :programming_experience, :reason, :tshirt_size, :tshirt_color, :status)
+    params[:user].permit(:name, :email, :track, :under_18, :previous_attendant, :programming_experience, :reason, :tshirt_size, :tshirt_color, :status)
   end
 
 end
