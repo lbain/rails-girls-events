@@ -9,11 +9,17 @@
 <p><%=@user.reason%><p>
 
 <h2>Admin votes</h2>
-<a href="/vote"><i class="fa fa-thumbs-o-up"></i><span class="vote-up-count">2</span></a>
-<a href="/vote"><i class="fa fa-thumbs-o-down"></i><span class="vote-down-count">1</span></a>
+
+<%= link_to vote_path(@user.id, :vote_type => 'up') do %>
+  <i class="fa fa-thumbs-o-up"></i> 
+<%end%>
+
+<%= link_to vote_path(@user.id, :vote_type => 'down') do %>
+  <i class="fa fa-thumbs-o-down"></i> 
+<%end%>
 
 <h2>Admin comments</h2>
 
-<%= link_to 'Accept', status_path(@user.id, :status => 'accepted') %>
+<%= link_to 'Approve', status_path(@user.id, :status => 'approved') %>
 <%= link_to 'Reject', status_path(@user.id, :status => 'rejected') %>
 <%= link_to 'Defer', status_path(@user.id, :status => 'deferred') %>

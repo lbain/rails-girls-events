@@ -1,5 +1,6 @@
 User.destroy_all
 Admin.destroy_all
+Vote.destroy_all
 
 #create users
 User.create(name: 'Joanna Smith', email: 'Joanna_Smith@gmail.com', under_18: false, previous_attendant: true, track: 'Rails Girls Next', programming_experience: 'Some Ruby', reason: 'I want to learn to program', tshirt_size: 'S', status: 'applied')
@@ -24,8 +25,8 @@ Admin.create(username: 'Lucy Bain', email: 'lucybain@gmail.com')
 Admin.create(username: 'Angie', email: 'angie@gmail.com')
 
 #create votes
-Vote.create(admin_id: 4, user_id: 46)
-Vote.create(admin_id: 5, user_id: 47)
-Vote.create(admin_id: 6, user_id: 48)
+Vote.create(admin_id: 4, user_id: 91, vote_type: 'up')
+Vote.create(admin_id: 5, user_id: 92, vote_type: 'up')
+Vote.create(admin_id: 6, user_id: 93, vote_type: 'down')
 
 
