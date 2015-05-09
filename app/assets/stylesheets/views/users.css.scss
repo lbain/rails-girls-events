@@ -168,3 +168,23 @@ $stepSize: 36px;
     font-size: 16px;
   }
 }
+
+.users.show {
+  .btn {
+    min-width: 5em;
+  }
+}
+
+.user-info-divider {
+  margin-bottom: 35px;
+
+  h4 {
+    margin-bottom: 15px;
+  }
+}
+
+.up-vote-btn, .down-vote-btn {
+  &, &:hover {
+    color: black;
+  }
+}
