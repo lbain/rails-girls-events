@@ -1,15 +1,15 @@
-<div class="container_12">
-  <table class='user-table'>
+<div class="container_12 container">
+  <table class='user-table table'>
     <tr>
-      <th>To Do</th>
+      <th class="icon-cell">To Do</th>
       <th>Name</th>
-      <th>Their Response</th>
+      <th class="icon-cell">Their Response</th>
     </tr>
     <% @users.each do |user| %>
       <tr>
-        <td><i class="fa <%= user.admin_status_icon %>"></i></td>
+        <td class="icon-cell"><i class="fa <%= user.admin_status_icon %>"></i></td>
         <td><%= link_to user.name, user_path(user) %></td>
-        <td><i class="fa <%= user.user_status_icon %>"></i></td>
+        <td class="icon-cell"><i class="fa <%= user.user_status_icon %>"></i></td>
       </tr>
     <% end %>
   </table>

@@ -1,6 +1,7 @@
 @import 'variables';
 
 body {
+  margin: 0 !important;
   min-width: auto;
 }
 
@@ -12,7 +13,7 @@ body {
   width: 100%;
 }
 
-.user-show-container {
+.container {
   font-size: 16px;
   padding-top: 35px;
   padding-bottom: 35px;
@@ -26,6 +27,34 @@ body {
   display: block;
   margin: 2em 0;
   padding: 2em 0;
+}
+
+.table {
+  margin-top: -5px;
+  width: 100%;
+
+  th {
+    border-bottom: 2px solid #ddd;
+    text-align: left;
+    white-space: nowrap;
+
+    &.icon-cell {
+      text-align: center;
+    }
+  }
+
+  td {
+    border-bottom: 1px solid #ddd;
+  }
+
+  th, td {
+    padding: 5px 10px;
+  }
+
+  .icon-cell {
+    text-align: center;
+    width: 50px;
+  }
 }
 
 @media screen and (min-width: $tablet) {
