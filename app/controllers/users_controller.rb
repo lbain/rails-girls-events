@@ -39,6 +39,9 @@ class UsersController < ApplicationController
   def update_admin_status
     @user = User.find params[:id]
     @user.update(admin_status: params[:status])
+    if @user.admin_status == 'approved'
+      @user.send_invitation
+    end
     redirect_to user_path
   end
 
