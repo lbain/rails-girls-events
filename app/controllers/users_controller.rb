@@ -5,7 +5,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-    @user.save
+    if @user.save
+      UserMailer.application_success(@user).deliver
+    end
     render :new
   end
 
