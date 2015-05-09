@@ -36,4 +36,26 @@ class User < ActiveRecord::Base
   def send_invitation
     UserMailer.application_success(self).deliver
   end
+
+  def admin_status_icon
+    case admin_status
+    when 'applied'
+      'fa-exclamation-triangle'
+    when 'approved'
+      'fa-check'
+    when 'waitlisted'
+      'fa-clock-o'
+    when 'rejected'
+      'fa-times'
+    end
+  end
+
+  def user_status_icon
+    case user_status
+    when 'accepted'
+      'fa-check'
+    when 'declined'
+      'fa-times'
+    end
+  end
 end
