@@ -32,6 +32,18 @@ class UsersController < ApplicationController
     redirect_to user_path
   end
 
+  def self.count_up_votes(user_id)
+    @votes = Vote.all
+    @user = User.find params[:id]
+    @votes.select{|vote| vote.user_id == @user.id && vote.vote_type == 'up'}.count
+  end
+
+  def self.count_down_votes(user_id)
+    @votes = Vote.all
+    @user = User.find params[:id]
+    @votes.select{|vote| vote.user_id == @user.id && vote.vote_type == 'down'}.count
+  end
+
   private
   def user_params
     params[:user].permit(:name, :email, :track, :under_18, :previous_attendant, :programming_experience, :reason, :tshirt_size, :tshirt_color, :status)
