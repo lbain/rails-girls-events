@@ -209,3 +209,21 @@ $stepSize: 36px;
   }
 }
 
+.shirt-image {
+  display: none;
+}
+
+@media screen and (min-width: $desktop) {
+  .shirt-image {
+    background-color: #ddd;
+    background-image: url(image_path("tshirt.png"));
+    background-size: cover;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 150px;
+    width: 200px;
+    height: 200px;
+  }
+}
+

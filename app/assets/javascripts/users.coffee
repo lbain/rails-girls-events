@@ -18,3 +18,6 @@ $ ->
   $('.steps-form__step-next-btn input').on 'click', () ->
     stepPosition = $(this).parents('.steps-form__step').first().next().offset().top
     $("html, body").animate({scrollTop:stepPosition}, 750)
+  $('#tshirt').on 'change', () ->
+    console.log($(this).val())
+    $('#shirt-image').css('background-color', $(this).val())

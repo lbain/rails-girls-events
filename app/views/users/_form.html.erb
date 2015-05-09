@@ -126,8 +126,14 @@
         <div class="steps-form__step__field-group">
           <label for="tshirt_color">Would you like to guess the t-shirt colour?</label>
           <div class="steps-form__step__field">
-            <input type="text" name="user[tshirt_color]" />
+            <select name="user[tshirt_color]" id="tshirt">
+              <option value=""></option>
+              <option value="#ff0000">Red</option>
+              <option value="#00ff00">Blue</option>
+              <option value="#000fff">Green</option>
+            </select>
           </div>
+          <div class="shirt-image" id="shirt-image"></div>
         </div>
       </div>
       <div class="steps-form__step-next-btn">
