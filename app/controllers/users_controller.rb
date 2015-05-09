@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      UserMailer.application_success(@user).deliver
+      UserMailer.application_recieved(@user).deliver
     end
     render :new
   end
