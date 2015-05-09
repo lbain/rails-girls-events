@@ -22,15 +22,6 @@ class UsersController < ApplicationController
     @admin_page = true
   end
 
-  def thanks
-  end
-
-  def confirmation
-  end
-
-  def user_status_thanks
-  end
-
   def update_user_status
     @user = User.find params[:id]
     @user.update(user_status: params[:status])
