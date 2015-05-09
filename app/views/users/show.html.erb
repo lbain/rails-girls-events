@@ -1,19 +1,11 @@
-<h1><%=@user.name%></h1>
-<h2>Track:</h2>
-<p><%=@user.track%><p>
-<h2>Previous attendant:</h2>
-<p><%=@user.previous_attendant%><p>
-<h2>Programming experience:</h2>
-<p><%=@user.programming_experience%><p>
-<h2>Reason for applying:</h2>
-<p><%=@user.reason%><p>
+<div class="container_12">
+  <h2>Admin votes</h2>
+  <a href="/vote"><i class="fa fa-thumbs-o-up"></i><span class="vote-up-count">2</span></a>
+  <a href="/vote"><i class="fa fa-thumbs-o-down"></i><span class="vote-down-count">1</span></a>
 
-<h2>Admin votes</h2>
-<a href="/vote"><i class="fa fa-thumbs-o-up"></i><span class="vote-up-count">2</span></a>
-<a href="/vote"><i class="fa fa-thumbs-o-down"></i><span class="vote-down-count">1</span></a>
+  <h2>Admin comments</h2>
 
-<h2>Admin comments</h2>
-
-<%= link_to 'Accept', status_path(@user.id, :status => 'accepted') %>
-<%= link_to 'Reject', status_path(@user.id, :status => 'rejected') %>
-<%= link_to 'Defer', status_path(@user.id, :status => 'deferred') %>
+  <%= link_to 'Accept', status_path(@user.id, :status => 'accepted') %>
+  <%= link_to 'Reject', status_path(@user.id, :status => 'rejected') %>
+  <%= link_to 'Defer', status_path(@user.id, :status => 'deferred') %>
+</div>
