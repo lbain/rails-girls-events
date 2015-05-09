@@ -36,10 +36,18 @@
 
   <div class="user-info-divider">
     <h4>Admin comments</h4>
-
-    <textarea cols="1" rows="1" class="admin-comment">
-      Yes! Let's approve this girl. She sounds great!
-    </textarea>
+    <div class="comment">
+      <p class="text">I remember that girl from the past year. I think we should approve.</p>
+      <p class="date">Posted by Lucy at 14:30 on 8 May, 2015</p>
+    </div>
+    <div class="comment">
+      <p class="text">Yeah, <%= @user.name %> is cool! Approved ;)</p>
+      <p class="date">Posted by Amy at 14:35 on 8 May, 2015</p>
+    </div>
+    <div class="comment">
+      <p>New comment</p>
+      <p><textarea cols="1" rows="1" class="admin-comment"></textarea></p>
+    </div>
   </div>
   <div class="user-info-divider">
 
