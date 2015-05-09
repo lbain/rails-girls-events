@@ -20,15 +20,34 @@ label {
   border-radius:4px;
   cursor:pointer;
   line-height:16px;
+  margin: 12px 10px 10px 0;
   padding-top: 10px;
   padding-bottom: 10px;
   min-width: 7em;
+  text-align: center;
+}
+
+span.btn {
+  display: inline-block;
 }
 
 .btn-primary {
   background-color: $brand-color;
   color: white;
   font-size: 20px;
+  &:hover, &:focus {
+    background-color: #e6461b;
+  }
+}
+
+.btn-secondary {
+  background-color: #353535;
+  border-color: black;
+  color: white;
+  font-size: 20px;
+  &:hover, &:focus {
+    background-color: #505050;
+  }
 }
 
 input, textarea {

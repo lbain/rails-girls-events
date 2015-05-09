@@ -7,8 +7,13 @@
 }
 
 .steps-form__step {
-  padding-bottom: 25px;
-  padding-top: 25px;
+  box-sizing: border-box;
+  position: relative;
+  .container_12 {
+    padding-bottom: 25px;
+    padding-top: 25px;
+    
+  }
 }
 
 $stepSize: 36px;
@@ -33,20 +38,30 @@ $stepSize: 36px;
   label {
     font-size: 16px;
   }
+
+  .boolean {
+    font-size: 16px;
+    &:first-child {
+      margin-top: 10px;
+    }
+  }
+}
+
+.steps-form__step-next-btn {
+  display: none;
 }
 
 @media screen and (min-width: 460px) {
   .steps-form__step {
     .container_12 {
       padding-left: 2 * $stepSize + 10px;
-      position: relative;
     }
   }
 
   .steps-form__step__step-number {
     left: 25px;
     position: absolute;
-    top: 0;
+    top: 25px;
   }
 }
 
@@ -55,15 +70,19 @@ $stepSize: 36px;
   $stepSize: 54px;
 
   .steps-form__step {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    
+    .container_12 {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
   }
   
   .steps-form__step__step-number {
     font-size: $stepSize / 1.6;
     height: $stepSize;
     line-height: $stepSize;
+    left: 50%;
+    margin-left:  - $tablet / 2 + $stepSize;
+    top: 25px;
     width: $stepSize;
   }
 
@@ -72,6 +91,12 @@ $stepSize: 36px;
       padding-left: 2 * $stepSize + 10px;
       padding-top: 10px;
     }
+  }
+
+  .steps-form__step-next-btn {
+    display: block;
+    margin-top: 20px;
+    text-align: right;
   }
 }
 
@@ -89,7 +114,48 @@ $stepSize: 36px;
   .steps-form__step {
     .container_12 {
       padding-left: 2 * $stepSize;
-      padding-top: 10px;
+      padding-top: 40px;
     }
+  }
+
+  .users.new {
+    position: relative;
+
+    header {
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
+
+    .steps-form__step:first-of-type {
+      .steps-form__step__step-number {
+        top: 130px;
+      }
+      .container_12 {
+        padding-top: 145px;
+      }
+    }
+
+    .steps-form__step-next-btn {
+      bottom: 70px;
+      position: absolute;
+    }
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  $stepSize: 60px;
+
+  .steps-form__step {
+    .container_12 {
+      padding-top: 100px;
+    }
+  }
+
+  .steps-form__step__step-number {
+    margin-left:  - $desktop / 2 + $stepSize;
+    top: 90px;
   }
 }
