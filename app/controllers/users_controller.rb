@@ -26,9 +26,18 @@ class UsersController < ApplicationController
   def confirmation
   end
 
-  def status
+  def user_status_thanks
+  end
+
+  def update_user_status
     @user = User.find params[:id]
-    @user.update(:status => params[:status])
+    @user.update(user_status: params[:status])
+    redirect_to user_status_thanks_path
+  end
+
+  def update_admin_status
+    @user = User.find params[:id]
+    @user.update(admin_status: params[:status])
     redirect_to user_path
   end
 
