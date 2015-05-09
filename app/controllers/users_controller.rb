@@ -13,11 +13,13 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @admin_page = true
   end
 
   def show
     @user = User.find params[:id]
     @admin = @current_user
+    @admin_page = true
   end
 
   def thanks
