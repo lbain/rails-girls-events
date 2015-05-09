@@ -1,4 +1,5 @@
 User.destroy_all
+Admin.destroy_all
 
 #create users
 User.create(name: 'Joanna Smith', email: 'Joanna_Smith@gmail.com', under_18: false, previous_attendant: true, track: 'Rails Girls Next', programming_experience: 'Some Ruby', reason: 'I want to learn to program', tshirt_size: 'S', status: 'applied')
@@ -16,3 +17,15 @@ User.create(name: 'Sophie Dorsey', email: 'Sophie_Dorsey@gmail.com', under_18: t
 User.create(name: 'Rose Simpson', email: 'Rose_Simpson@gmail.com', under_18: false, previous_attendant: true, track: 'Rails Girls Next', programming_experience: 'Some Ruby', reason: 'I want to learn to program', tshirt_size: 'S', status: 'applied')
 User.create(name: 'Liana Klein', email: 'Liana_Klein@gmail.com', under_18: false, previous_attendant: false, track: 'Rails Girls', programming_experience: 'none', reason: 'I want to learn to program', tshirt_size: 'S', status: 'applied')
 User.create(name: 'Melody Glenn', email: 'Melody_Glenn@gmail.com', under_18: false, previous_attendant: false, track: 'Rails Girls', programming_experience: 'none', reason: 'I want to learn to program', tshirt_size: 'S', status: 'applied')
+
+#create admins
+Admin.create(username: 'Amy Simmons', email: 'amysimmons.abc@gmail.com')
+Admin.create(username: 'Lucy Bain', email: 'lucybain@gmail.com')
+Admin.create(username: 'Angie', email: 'angie@gmail.com')
+
+#create votes
+Vote.create(admin_id: 4, user_id: 46)
+Vote.create(admin_id: 5, user_id: 47)
+Vote.create(admin_id: 6, user_id: 48)
+
+
