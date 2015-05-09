@@ -1,29 +1,31 @@
 <div class="container_12 user-show-container container">
 
-  <h1 class="user-name"><%=@user.name%></h1>
+  <h1 class="user-name">
+    <!-- <span class="fa fa-user"></span>&nbsp;&nbsp; -->
+    <%=@user.name%></h1>
   
   <div class="user-info-divider">
-    <h2>Track:</h2>
-    <p><%=@user.track%><p>
+    <h4>Track:</h4>
+    <p><%=@user.track%></p>
   </div>
 
   <div class="user-info-divider">
-    <h2>Previous attendant:</h2>
-    <p><%=@user.previous_attendant%><p>
+    <h4>Previous attendant:</h4>
+    <p><%=@user.previous_attendant%></p>
   </div>
 
   <div class="user-info-divider">
-    <h2>Programming experience:</h2>
-    <p><%=@user.programming_experience%><p>
+    <h4>Programming experience:</h4>
+    <p><%=@user.programming_experience%></p>
   </div>
 
   <div class="user-info-divider">
-    <h2>Reason for applying:</h2>
-    <p><%=@user.reason%><p>
+    <h4>Reason for applying:</h4>
+    <p><%=@user.reason%></p>
   </div>
 
   <div class="user-info-divider">
-    <h2>Admin votes</h2>
+    <h4>Admin votes</h4>
     <%= link_to vote_path(user_id: @user.id, vote_type: 'up'), class: "up-vote-btn" do %>
       <i class="fa fa-thumbs-o-up"></i><span class='up-count'><%=@user.count_up_votes%></span>
     <%end%>
@@ -32,16 +34,18 @@
     <%end%>
   </div>
 
-  <div>
-    <h2>Admin comments</h2>
+  <div class="user-info-divider">
+    <h4>Admin comments</h4>
 
     <textarea cols="1" rows="1" class="admin-comment">
       Yes! Let's approve this girl. She sounds great!
     </textarea>
+  </div>
+  <div class="user-info-divider">
 
-    <%= link_to 'Approve', admin_status_path(@user.id, :status => 'approved'), class: "admin-status-btn" %>
-    <%= link_to 'Reject', admin_status_path(@user.id, :status => 'rejected'), class: "admin-status-btn" %>
-    <%= link_to 'Defer', admin_status_path(@user.id, :status => 'deferred'), class: "admin-status-btn" %>
+    <%= link_to 'Approve', admin_status_path(@user.id, :status => 'approved'), class: "btn btn-primary" %>
+    <%= link_to 'Reject', admin_status_path(@user.id, :status => 'rejected'), class: "btn btn-secondary" %>
+    <%= link_to 'Defer', admin_status_path(@user.id, :status => 'deferred'), class: "btn btn-secondary" %>
   </div>
 
 </div>
