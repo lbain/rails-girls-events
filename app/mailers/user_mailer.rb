@@ -2,7 +2,7 @@ class UserMailer < MandrillMailer::TemplateMailer
   default from: 'railsgirlssyd@gmail.com'
 
   def application_recieved(user)
-    user_info = {name: user.name, email: user.email}
+    user_info = {name: user.name, email: 'lucybain@gmail.com'}
 
     mandrill_mail(
       template: 'application-recieved',
@@ -17,7 +17,7 @@ class UserMailer < MandrillMailer::TemplateMailer
   end
 
   def application_success(user)
-    user_info = {name: user.name, email: user.email}
+    user_info = {name: user.name, email: 'lucybain@gmail.com'}
 
     mandrill_mail(
       template: 'application-successful',
@@ -26,8 +26,8 @@ class UserMailer < MandrillMailer::TemplateMailer
       vars: {
         'NAME' => user.name,
         'SUBJECT' => 'Welcome to Rails Girls!',
-        'ACCEPT_LINK' => user_status_path(user, 'accept'),
-        'DELCLINE_LINK' => user_status_path(user, 'decline'),
+        'ACCEPT_LINK' => user_status_url(user, 'accepted', port: 3000),
+        'DELCLINE_LINK' => user_status_url(user, 'declined', port: 3000),
       },
       important: true,
       inline_css: true)
