@@ -23,16 +23,19 @@
         <div class="steps-form__step__field-group">
           <label for="age">Age</label>
           <div class="steps-form__step__field">
-            <div>
+            <div class="boolean">
               <input type="radio" name="user[under_18]" value="yes" />
               Under 18
             </div>
-            <div>
+            <div class="boolean">
               <input type="radio" name="user[under_18]" value="no" />
               18 or older
             </div>
           </div>
         </div>
+      </div>
+      <div class="steps-form__step-next-btn">
+        <input type="button" class="btn btn-secondary" value="Next" />
       </div>
     </div>
   </fieldset>
@@ -51,10 +54,15 @@
       <div class="steps-form__step__fields">
         <div class="steps-form__step__field-group">
           <div class="steps-form__step__field">
-            <input type="checkbox" name="user[previous_attendant]" />
-            <label for="previous_attendant">Have you attended RailsGirls events before?</label>
+            <div class="boolean">
+              <input type="checkbox" name="user[previous_attendant]" />
+              <label for="previous_attendant">Have you attended RailsGirls events before?</label>
+            </div>
           </div>
         </div>
+      </div>
+      <div class="steps-form__step-next-btn">
+        <input type="button" class="btn btn-secondary" value="Next" />
       </div>
     </div>
   </fieldset>
@@ -78,6 +86,9 @@
           </div>
         </div>
       </div>
+      <div class="steps-form__step-next-btn">
+        <input type="button" class="btn btn-secondary" value="Next" />
+      </div>
     </div>
   </fieldset>
   <fieldset class="steps-form__step">
@@ -88,11 +99,26 @@
         <div class="steps-form__step__field-group">
           <label for="tshirt_size">T-shirt size</label>
           <div class="steps-form__step__field">
-            <input type="radio" name="user[tshirt_size]" value="xs" />
-            <input type="radio" name="user[tshirt_size]" value="s" />
-            <input type="radio" name="user[tshirt_size]" value="m" />
-            <input type="radio" name="user[tshirt_size]" value="l" />
-            <input type="radio" name="user[tshirt_size]" value="xl" />
+            <div class="boolean">
+              <input type="radio" name="user[tshirt_size]" value="xs" />
+              X-Small
+            </div>
+            <div class="boolean">
+              <input type="radio" name="user[tshirt_size]" value="s" />
+              Small
+            </div>
+            <div class="boolean">
+              <input type="radio" name="user[tshirt_size]" value="m" />
+              Medium
+            </div>
+            <div class="boolean">
+              <input type="radio" name="user[tshirt_size]" value="l" />
+              Large
+            </div>
+            <div class="boolean">
+              <input type="radio" name="user[tshirt_size]" value="xl" />
+              X-Large
+            </div>
           </div>
         </div>
       </div>
@@ -104,10 +130,8 @@
           </div>
         </div>
       </div>
-      <div class="steps-form__step__fields">
-        <div class="steps-form__step__field-group">
-          <input type="submit" name="user[submit]" class="btn btn-primary" value="Apply" />
-        </div>
+      <div class="steps-form__step-next-btn">
+        <input type="submit" name="user[submit]" class="btn btn-primary" value="Apply" />
       </div>
     </div>
   </fieldset>
