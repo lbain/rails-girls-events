@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/Compass/compass-rails.git
+  revision: 3e88f991150ffa39b0a539dffb3326248d18e6ad
+  branch: master
+  specs:
+    compass-rails (2.0.4)
+      compass (~> 1.0.0)
+      sass-rails (< 5.1)
+      sprockets (< 2.13)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -37,9 +47,9 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     acts_as_commentable (4.0.2)
-    annotate (2.6.5)
-      activerecord (>= 2.3.0)
-      rake (>= 0.8.7)
+    annotate (2.6.8)
+      activerecord (>= 3.2, <= 4.3)
+      rake (~> 10.4)
     arel (6.0.0)
     bcrypt (3.1.10)
     better_errors (2.1.1)
@@ -52,6 +62,7 @@ GEM
     byebug (4.0.5)
       columnize (= 0.9.0)
     callsite (0.0.11)
+    chunky_png (1.3.4)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -61,13 +72,27 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     columnize (0.9.0)
+    compass (1.0.3)
+      chunky_png (~> 1.2)
+      compass-core (~> 1.0.2)
+      compass-import-once (~> 1.0.5)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      sass (>= 3.3.13, < 3.5)
+    compass-core (1.0.3)
+      multi_json (~> 1.0)
+      sass (>= 3.3.0, < 3.5)
+    compass-import-once (1.0.5)
+      sass (>= 3.2, < 3.5)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.5.2)
+    ffi (1.9.8)
     font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.13)
       activesupport (>= 3.0.0, < 5)
@@ -97,7 +122,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-rails (0.3.3)
+    pry-rails (0.3.4)
       pry (>= 0.9.10)
     pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
@@ -134,6 +159,9 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
+    rb-fsevent (0.9.4)
+    rb-inotify (0.9.5)
+      ffi (>= 0.5.0)
     rdoc (4.2.0)
       json (~> 1.4)
     sass (3.4.13)
@@ -147,9 +175,12 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     slop (3.6.0)
-    spring (1.3.5)
-    sprockets (3.0.3)
+    spring (1.3.6)
+    sprockets (2.12.3)
+      hike (~> 1.2)
+      multi_json (~> 1.0)
       rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
     sprockets-rails (2.3.0)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -179,6 +210,7 @@ DEPENDENCIES
   binding_of_caller
   byebug
   coffee-rails (~> 4.1.0)
+  compass-rails!
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
