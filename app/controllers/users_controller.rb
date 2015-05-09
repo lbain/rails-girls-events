@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
-    @admin = Admin.find(13)
+    @admin = @current_user
   end
 
   def thanks
@@ -30,18 +30,6 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
     @user.update(:status => params[:status])
     redirect_to user_path
-  end
-
-  def self.count_up_votes(user_id)
-    @votes = Vote.all
-    @user = User.find params[:id]
-    @votes.select{|vote| vote.user_id == @user.id && vote.vote_type == 'up'}.count
-  end
-
-  def self.count_down_votes(user_id)
-    @votes = Vote.all
-    @user = User.find params[:id]
-    @votes.select{|vote| vote.user_id == @user.id && vote.vote_type == 'down'}.count
   end
 
   private
