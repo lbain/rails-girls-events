@@ -16,10 +16,17 @@ class VotesController < ApplicationController
     # redirect_to user_path
   end
 
-  # def votes
-  #   @user = User.find params[:id]
-    
-  # end
+  def count_up
+    @votes = Vote.all
+    @user = User.find params[:id]
+    @votes.select{|vote| vote.user_id == @user.id && }.count
+  end
+
+  def count_down
+    @votes = Vote.all
+    @user = User.find params[:id]
+    @votes.select{|vote| vote.user_id == @user.id && }.count
+  end
 
   private
   def vote_params
