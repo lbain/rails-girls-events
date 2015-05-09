@@ -1,14 +1,29 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>RailsGirlsEvents</title>
+  <meta charset="utf-8">
+
+  <title>Rails Girls Events</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.png' %>
+
 </head>
 <body>
-  
-<%= yield %>
+  <div id="background">
+    <header>
+      <div class="container_12">
+        <a id="logo" href="/">
+          <%= image_tag 'railsgirls-logo.png' %>
+        </a>
+      </div>
+    </header>
 
+    <div id="container" class="container_16">
+      <%= yield %>
+    </div>
+
+  </div>
 </body>
 </html>
