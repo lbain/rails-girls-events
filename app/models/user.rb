@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
       'fa-exclamation-triangle'
     when 'approved'
       'fa-check'
-    when 'waitlisted'
+    when 'deferred'
       'fa-clock-o'
     when 'rejected'
       'fa-times'
