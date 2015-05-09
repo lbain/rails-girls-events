@@ -9,12 +9,6 @@ class VotesController < ApplicationController
     redirect_to user_path(params[:user_id])
   end
 
-  def update
-    # @user = User.find params[:id]
-    # @user.update(:status => params[:status])
-    # redirect_to user_path
-  end
-
   private
   def vote_params
     params.permit(:user_id, :vote_type)
