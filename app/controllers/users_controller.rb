@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new user_params
+    @user = User.new user_params.merge(admin_status: 'applied')
     if @user.save
       @user.send_application_thanks
     end
