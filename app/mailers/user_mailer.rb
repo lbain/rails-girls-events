@@ -2,7 +2,7 @@ class UserMailer < MandrillMailer::TemplateMailer
   default from: 'railsgirlssyd@gmail.com'
 
   def application_recieved(user)
-    user_info = {name: user.name, email: user.email}
+    user_info = {name: user.name, email: 'lucybain@gmail.com'}
 
     mandrill_mail(
       template: 'application-recieved',
@@ -17,7 +17,7 @@ class UserMailer < MandrillMailer::TemplateMailer
   end
 
   def application_success(user)
-    user_info = {name: user.name, email: user.email}
+    user_info = {name: user.name, email: 'lucybain@gmail.com'}
 
     mandrill_mail(
       template: 'application-successful',
