@@ -1,3 +1,5 @@
+@import '../base/variables';
+
 .steps-form {
   .steps-form__step:nth-child(2n) {
     background: #f6f6f6;
@@ -5,11 +7,89 @@
 }
 
 .steps-form__step {
-  padding-bottom: 20px;
-  padding-top: 20px;
+  padding-bottom: 25px;
+  padding-top: 25px;
 }
 
-.steps-form__step__fields {
+$stepSize: 36px;
+
+.steps-form__step__step-number {
+  background: $brand-color;
+  border-radius: 50%;
+  color: white;
+  display: inline-block;
+  font-size: $stepSize / 1.5;
+  font-weight: bold;
+  height: $stepSize;
+  line-height: $stepSize;
+  margin-bottom: 10px;
+  text-align: center;
+  width: $stepSize;
+}
+
+.steps-form__step__field-group {
+  margin-top: 20px;
+
+  label {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 460px) {
+  .steps-form__step {
+    .container_12 {
+      padding-left: 2 * $stepSize + 10px;
+      position: relative;
+    }
+  }
+
+  .steps-form__step__step-number {
+    left: 25px;
+    position: absolute;
+    top: 0;
+  }
+}
+
+@media screen and (min-width: $tablet) {
   
+  $stepSize: 54px;
+
+  .steps-form__step {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+  }
   
+  .steps-form__step__step-number {
+    font-size: $stepSize / 1.6;
+    height: $stepSize;
+    line-height: $stepSize;
+    width: $stepSize;
+  }
+
+  .steps-form__step {
+    .container_12 {
+      padding-left: 2 * $stepSize + 10px;
+      padding-top: 10px;
+    }
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  
+  $stepSize: 60px;
+  
+  .steps-form__step__step-number {
+    font-size: $stepSize / 1.6;
+    height: $stepSize;
+    line-height: $stepSize;
+    width: $stepSize;
+  }
+
+  .steps-form__step {
+    .container_12 {
+      padding-left: 2 * $stepSize;
+      padding-top: 10px;
+    }
+  }
 }
