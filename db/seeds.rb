@@ -25,8 +25,8 @@ Admin.create(username: 'Lucy Bain', email: 'lucybain@gmail.com')
 Admin.create(username: 'Angie', email: 'angie@gmail.com')
 
 #create votes
-Vote.create(admin_id: 4, user_id: 91, vote_type: 'up')
-Vote.create(admin_id: 5, user_id: 92, vote_type: 'up')
-Vote.create(admin_id: 6, user_id: 93, vote_type: 'down')
+Vote.create(admin_id: 4, user_id: 106, vote_type: 'up')
+Vote.create(admin_id: 5, user_id: 107, vote_type: 'up')
+Vote.create(admin_id: 6, user_id: 108, vote_type: 'down')
 
 

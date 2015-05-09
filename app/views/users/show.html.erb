@@ -6,11 +6,12 @@
 <h2>Admin votes</h2>
 
 <%= link_to vote_path(@user.id, :vote_type => 'up') do %>
-  <i class="fa fa-thumbs-o-up"></i> 
+  <i class="fa fa-thumbs-o-up"></i><span class='up-count'><%=9%></span>
 <%end%>
 
+
 <%= link_to vote_path(@user.id, :vote_type => 'down') do %>
-  <i class="fa fa-thumbs-o-down"></i> 
+  <i class="fa fa-thumbs-o-down"></i><span class='up-count'><%=10%></span>
 <%end%>
 
 <h2>Admin comments</h2>
