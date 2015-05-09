@@ -506,7 +506,7 @@ background:url('../images/rg-yourcityname.png') no-repeat 0 10px,
 
 .tokyo#promo {
   padding-left:420px;
-  background:url('../images/rg-tokyo.jpg') no-repeat left top;
+  background:url('../images/rg-tokyo.jpg') no-repeat left top,
                  url('../images/separator.png') no-repeat center bottom;
   }
 
