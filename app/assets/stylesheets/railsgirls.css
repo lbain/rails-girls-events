@@ -20,7 +20,7 @@ a, a:visited, a:focus, a:active, a:hover{
 }
 
 #background {
-  background:url(../images/header.png) no-repeat 50% 180px;
+  background:url(../assets/header.png) no-repeat 50% 180px;
 }
 
 #poster {
