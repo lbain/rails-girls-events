@@ -3,26 +3,17 @@
   <h1 class="user-name">
     <!-- <span class="fa fa-user"></span>&nbsp;&nbsp; -->
     <%=@user.name%></h1>
-  
   <div class="user-info-divider">
-    <h4>Track:</h4>
-    <p><%=@user.track%></p>
-  </div>
-
-  <div class="user-info-divider">
-    <h4>Previous attendant:</h4>
-    <% attendance = @user.previous_attendant.to_s %>
-    <% if attendance == 'false'%>
-      <p>No</p>
-    <% else %>
-      <p>Yes</p>
-    <% end %>
+    <h4>Programming experience:</h4>
+    <p><%=@user.programming_experience%></p>
   </div>
 
   <div class="user-info-divider">
     <h4>Reason for applying:</h4>
     <p><%=@user.reason%></p>
   </div>
+
+  
 
   <div class="user-info-divider">
     <h4>Admin votes</h4>
