@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150509010900) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "vote_type"
   end
 
 end

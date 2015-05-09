@@ -11,8 +11,16 @@
  * file per style scope.
  *
  *= require font-awesome
- *= require_tree .
- *= require_self
  */
- 
- @import 'variables';
+
+@import 'legacy/960';
+@import 'legacy/railsgirls';
+@import 'legacy/reset';
+@import 'legacy/text';
+
+@import 'base/variables';
+@import 'base/base';
+@import 'base/forms';
+
+@import 'views/users';
+

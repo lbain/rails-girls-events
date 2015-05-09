@@ -1,91 +1,113 @@
 <%= form_tag(users_path, class: 'steps-form') do %>
   <fieldset class="steps-form__step">
-    <span class="steps-form__step__step-number">1</span>
-    <div class="steps-form__step__fields">
-      <div class="steps-form__step__field-group">
-        <label for="name">Name</label>
-        <div class="steps-form__step__field">
-          <input type="text" name="user[name]" />
+    <div class="container_12">
+      <span class="steps-form__step__step-number">1</span>
+      <h1>My name is...</h1>
+      <div class="steps-form__step__fields">
+        <div class="steps-form__step__field-group">
+          <label for="name">Name</label>
+          <div class="steps-form__step__field">
+            <input type="text" name="user[name]" />
+          </div>
         </div>
       </div>
-    </div>
-    <div class="steps-form__step__fields">
-      <div class="steps-form__step__field-group">
-        <label for="email">Email</label>
-        <div class="steps-form__step__field">
-          <input type="text" name="user[email]" />
+      <div class="steps-form__step__fields">
+        <div class="steps-form__step__field-group">
+          <label for="email">Email</label>
+          <div class="steps-form__step__field">
+            <input type="text" name="user[email]" />
+          </div>
         </div>
       </div>
-    </div>
-    <div class="steps-form__step__fields">
-      <div class="steps-form__step__field-group">
-        <label for="age">Age</label>
-        <div class="steps-form__step__field">
-          <input type="radio" name="user[under_18]" value="yes" />
-          <input type="radio" name="user[under_18]" value="no" />
-        </div>
-      </div>
-    </div>
-  </fieldset>
-  <fieldset class="steps-form__step">
-    <div class="steps-form__step__fields">
-      <div class="steps-form__step__field-group">
-        <label for="track">Track</label>
-        <div class="steps-form__step__field">
-          <input type="text" name="user[track]" />
-        </div>
-      </div>
-    </div>
-    <div class="steps-form__step__fields">
-      <div class="steps-form__step__field-group">
-        <label for="previous_attendant">Have you attended RailsGirls events before?</label>
-        <div class="steps-form__step__field">
-          <input type="checkbox" name="user[previous_attendant]" />
-        </div>
-      </div>
-    </div>
-    <div class="steps-form__step__fields">
-      <div class="steps-form__step__field-group">
-        <label for="programming_experience">Programming experience</label>
-        <div class="steps-form__step__field">
-          <textarea name="user[programming_experience]"></textarea>
-        </div>
-      </div>
-    </div>
-    <div class="steps-form__step__fields">
-      <div class="steps-form__step__field-group">
-        <label for="reason">Why would you like to come?</label>
-        <div class="steps-form__step__field">
-          <textarea name="user[reason]"></textarea>
+      <div class="steps-form__step__fields">
+        <div class="steps-form__step__field-group">
+          <label for="age">Age</label>
+          <div class="steps-form__step__field">
+            <div>
+              <input type="radio" name="user[under_18]" value="yes" />
+              Under 18
+            </div>
+            <div>
+              <input type="radio" name="user[under_18]" value="no" />
+              18 or older
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </fieldset>
   <fieldset class="steps-form__step">
-    <span class="steps-form__step__step-number">3</span>
-    <div class="steps-form__step__fields">
-      <div class="steps-form__step__field-group">
-        <label for="tshirt_size">T-shirt size</label>
-        <div class="steps-form__step__field">
-          <input type="radio" name="user[tshirt_size]" value="xs" />
-          <input type="radio" name="user[tshirt_size]" value="s" />
-          <input type="radio" name="user[tshirt_size]" value="m" />
-          <input type="radio" name="user[tshirt_size]" value="l" />
-          <input type="radio" name="user[tshirt_size]" value="xl" />
+    <div class="container_12">
+      <span class="steps-form__step__step-number">2</span>
+      <h1>RailsGirls experience</h1>
+      <div class="steps-form__step__fields">
+        <div class="steps-form__step__field-group">
+          <label for="track">Track</label>
+          <div class="steps-form__step__field">
+            <input type="text" name="user[track]" />
+          </div>
+        </div>
+      </div>
+      <div class="steps-form__step__fields">
+        <div class="steps-form__step__field-group">
+          <div class="steps-form__step__field">
+            <input type="checkbox" name="user[previous_attendant]" />
+            <label for="previous_attendant">Have you attended RailsGirls events before?</label>
+          </div>
         </div>
       </div>
     </div>
-    <div class="steps-form__step__fields">
-      <div class="steps-form__step__field-group">
-        <label for="tshirt_color">T-shirt colour</label>
-        <div class="steps-form__step__field">
-          <input type="text" name="user[tshirt_color]" />
+  </fieldset>
+  <fieldset class="steps-form__step">
+    <div class="container_12">
+      <span class="steps-form__step__step-number">3</span>
+      <h1>Tell us a bit more about yourself</h1>
+      <div class="steps-form__step__fields">
+        <div class="steps-form__step__field-group">
+          <label for="programming_experience">Programming experience</label>
+          <div class="steps-form__step__field">
+            <textarea name="user[programming_experience]"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="steps-form__step__fields">
+        <div class="steps-form__step__field-group">
+          <label for="reason">Why would you like to come?</label>
+          <div class="steps-form__step__field">
+            <textarea name="user[reason]"></textarea>
+          </div>
         </div>
       </div>
     </div>
-    <div class="steps-form__step__fields">
-      <div class="steps-form__step__field-group">
-        <input type="submit" name="user[submit]" />
+  </fieldset>
+  <fieldset class="steps-form__step">
+    <div class="container_12">
+      <span class="steps-form__step__step-number">4</span>
+      <h1>Almost there!</h1>
+      <div class="steps-form__step__fields">
+        <div class="steps-form__step__field-group">
+          <label for="tshirt_size">T-shirt size</label>
+          <div class="steps-form__step__field">
+            <input type="radio" name="user[tshirt_size]" value="xs" />
+            <input type="radio" name="user[tshirt_size]" value="s" />
+            <input type="radio" name="user[tshirt_size]" value="m" />
+            <input type="radio" name="user[tshirt_size]" value="l" />
+            <input type="radio" name="user[tshirt_size]" value="xl" />
+          </div>
+        </div>
+      </div>
+      <div class="steps-form__step__fields">
+        <div class="steps-form__step__field-group">
+          <label for="tshirt_color">T-shirt colour</label>
+          <div class="steps-form__step__field">
+            <input type="text" name="user[tshirt_color]" />
+          </div>
+        </div>
+      </div>
+      <div class="steps-form__step__fields">
+        <div class="steps-form__step__field-group">
+          <input type="submit" name="user[submit]" class="btn btn-primary" value="Apply" />
+        </div>
       </div>
     </div>
   </fieldset>
