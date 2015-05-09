@@ -27,6 +27,12 @@ class UsersController < ApplicationController
   def confirmation
   end
 
+  def status
+    @user = User.find params[:id]
+    @user.update(:status => params[:status])
+    redirect_to user_path
+  end
+
   private
   def user_params
       params.permit(:name, :email, :track, :under_18, :previous_attendant, :programming_experience, :reason, :tshirt_size, :tshirt_color, :status)
