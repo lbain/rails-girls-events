@@ -11,12 +11,12 @@
 
   <div class="user-info-divider">
     <h4>Previous attendant:</h4>
-    <p><%=@user.previous_attendant%></p>
-  </div>
-
-  <div class="user-info-divider">
-    <h4>Programming experience:</h4>
-    <p><%=@user.programming_experience%></p>
+    <% attendance = @user.previous_attendant.to_s %>
+    <% if attendance == 'false'%>
+      <p>No</p>
+    <% else %>
+      <p>Yes</p>
+    <% end %>
   </div>
 
   <div class="user-info-divider">
