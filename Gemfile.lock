@@ -86,6 +86,7 @@ GEM
       sass (>= 3.2, < 3.5)
     debug_inspector (0.0.2)
     erubis (2.7.0)
+    excon (0.45.3)
     execjs (2.5.2)
     ffi (1.9.8)
     font-awesome-rails (4.3.0.0)
@@ -106,6 +107,13 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mandrill-api (1.0.53)
+      excon (>= 0.16.0, < 1.0)
+      json (>= 1.7.7, < 2.0)
+    mandrill_mailer (0.6.0)
+      actionpack
+      activesupport
+      mandrill-api (~> 1.0.9)
     meta_request (0.3.4)
       callsite (~> 0.0, >= 0.0.11)
       rack-contrib (~> 1.1)
@@ -214,6 +222,7 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
+  mandrill_mailer
   meta_request
   pg
   pry-rails
