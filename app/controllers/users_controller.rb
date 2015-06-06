@@ -36,6 +36,14 @@ class UsersController < ApplicationController
     redirect_to user_path
   end
 
+  def comments
+    commentable = User.create
+    comment = commentable.comments.create
+    comment.title = "First comment."
+    comment.comment = "This is the first comment."
+    comment.save
+  end
+
   private
   def user_params
     params[:user].permit(:name, :email, :track, :under_18, :previous_attendant, :programming_experience, :reason, :tshirt_size, :tshirt_color, :status)

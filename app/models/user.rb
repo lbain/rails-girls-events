@@ -19,6 +19,8 @@
 #
 
 class User < ActiveRecord::Base
+  acts_as_commentable
+
   def count_up_votes
     @votes = Vote.all
     @votes.select{|vote| vote.user_id == self.id && vote.vote_type == 'up'}.count
