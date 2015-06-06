@@ -49,9 +49,9 @@
       <%end%>
     </div>
 
-    <%= link_to 'Approve', admin_status_path(@user.id, :status => 'approved'), class: "btn btn-primary" %>
-    <%= link_to 'Reject', admin_status_path(@user.id, :status => 'rejected'), class: "btn btn-secondary" %>
-    <%= link_to 'Defer', admin_status_path(@user.id, :status => 'deferred'), class: "btn btn-secondary" %>
+    <%= link_to 'Approve', user_path(@user.id, user: { admin_status: 'approved' } ), method: :patch, class: "btn btn-primary" %>
+    <%= link_to 'Reject', user_path(@user.id, user: { admin_status: 'rejected' } ), method: :patch, class: "btn btn-secondary" %>
+    <%= link_to 'Defer', user_path(@user.id, user: { admin_status: 'deferred' } ), method: :patch, class: "btn btn-secondary" %>
   </div>
 
 </div>

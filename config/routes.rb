@@ -5,10 +5,9 @@ Rails.application.routes.draw do
     resources :votes, only: [:create]
   end
 
-  get '/users/:id/user-status/:status', to: 'users#update_user_status', as: 'user_status'
-  get '/users/:id/admin-status/:status', to: 'users#update_admin_status', as: 'admin_status'
-
   get '/events', to: 'events#index', as: 'events'
 
+  # Left separate from update since it's not for admin
+  get '/users/:id/user-status/:status', to: 'users#update_user_status', as: 'user_status'
 
 end
