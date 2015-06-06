@@ -1,8 +1,15 @@
 <div class="container_12 user-show-container container">
 
-  <h1 class="user-name">
-    <!-- <span class="fa fa-user"></span>&nbsp;&nbsp; -->
-    <%=@user.name%></h1>
+  <% unless @user.needs_admin_response?  %>
+    <h1>
+      <%= @user.name %> was <%= @user.admin_status %>
+    </h1>
+  <% end %>
+
+  <div class="user-info-divider">
+    <h4>Name:</h4>
+    <p><%=@user.name%></p>
+  </div>
 
   <div class="user-info-divider">
     <h4>Rails Girls experience:</h4>
@@ -50,9 +57,11 @@
       <%end%>
     </div>
 
-    <%= link_to 'Approve', user_path(@user.id, user: { admin_status: 'approved' } ), method: :patch, class: "btn btn-primary" %>
-    <%= link_to 'Reject', user_path(@user.id, user: { admin_status: 'rejected' } ), method: :patch, class: "btn btn-secondary" %>
-    <%= link_to 'Defer', user_path(@user.id, user: { admin_status: 'deferred' } ), method: :patch, class: "btn btn-secondary" %>
+    <% if @user.needs_admin_response?  %>
+      <%= link_to 'Approve', user_path(@user.id, user: { admin_status: 'approved' } ), method: :patch, class: "btn btn-primary" %>
+      <%= link_to 'Reject', user_path(@user.id, user: { admin_status: 'rejected' } ), method: :patch, class: "btn btn-secondary" %>
+      <%= link_to 'Defer', user_path(@user.id, user: { admin_status: 'deferred' } ), method: :patch, class: "btn btn-secondary" %>
+    <% end %>
   </div>
 
 </div>

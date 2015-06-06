@@ -37,8 +37,8 @@ class User < ActiveRecord::Base
     UserMailer.application_recieved(self).deliver
   end
 
-  def send_invitation
-
+  def needs_admin_response?
+    admin_status.blank? || admin_status == 'deferred'
   end
 
   def send_admin_status_email
