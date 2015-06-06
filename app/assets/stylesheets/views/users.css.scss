@@ -51,6 +51,21 @@ $stepSize: 36px;
   display: none;
 }
 
+.comment {
+  margin-bottom: 50px;
+}
+
+.user_comments_comment{
+  padding-top: 25px;
+  textarea {
+    height: 125px;
+  }
+}
+
+.up-vote-btn, .down-vote-btn {
+  color: #000;
+}
+
 @media screen and (min-width: 460px) {
   .steps-form__step {
     .container_12 {
@@ -177,12 +192,6 @@ $stepSize: 36px;
   }
 }
 
-.up-vote-btn, .down-vote-btn {
-  &, &:hover {
-    color: black;
-  }
-}
-
 .comment {
   border: 1px solid #ddd;
   border-left: 0;
@@ -205,6 +214,16 @@ $stepSize: 36px;
 
 .shirt-image {
   display: none;
+}
+
+.user-show-container {
+  .user-name {
+    padding: 25px 0;
+  }
+
+  .up-vote-btn, .down-vote-btn {
+    color: black;
+  }
 }
 
 @media screen and (min-width: $desktop) {
