@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :assign_current_user
-  def assign_current_user
-    # @current_user = Admin.first
+  def assign_current_user 
+    @current_user = Admin.first
   end
 end
