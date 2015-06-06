@@ -65,6 +65,12 @@ $stepSize: 36px;
   color: #000;
 }
 
+.steps-form {
+  textarea{
+    height: 200px;
+  }
+}
+
 .sessions, .registrations {
   #container{
     padding: 25px;
