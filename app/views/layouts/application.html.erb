@@ -17,8 +17,8 @@
         <a id="logo" href="/">
           <%= image_tag 'railsgirls-logo.png' %>
         </a>
-        <% if @admin_page %>
-          <%= link_to 'All Users', users_path, class: 'user-link' %>
+        <% if admin_signed_in? %>
+          <%= link_to 'Sign Out', destroy_admin_session_path, class: 'user-link' %>
         <% end %>
       </div>
     </header>
