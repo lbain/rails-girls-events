@@ -154,7 +154,7 @@ User.create(name: 'Melody Glenn',
     admin_status: 'approved')
 
 #create admins
-Admin.create(username: 'Amy Simmons', email: 'amysimmons.abc@gmail.com')
-Admin.create(username: 'Lucy Bain', email: 'lucybain@gmail.com')
-Admin.create(username: 'Angie', email: 'angie@gmail.com')
+# Admin.create(username: 'Amy Simmons', email: 'amysimmons.abc@gmail.com')
+# Admin.create(username: 'Lucy Bain', email: 'lucybain@gmail.com')
+# Admin.create(username: 'Angie', email: 'angie@gmail.com')
 
