@@ -13,14 +13,8 @@
  *= require font-awesome
  */
 
-@import 'legacy/960';
-
-@import 'legacy/railsgirls';
-
-@import 'legacy/reset';
-@import 'legacy/text';
-
 @import 'base/variables';
+@import 'base/text';
 @import 'base/base';
 @import 'base/forms';
 

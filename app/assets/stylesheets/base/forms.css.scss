@@ -1,5 +1,13 @@
 @import 'variables';
 
+input, textarea {
+  border: 0;
+  padding: 8px 8px;
+  font-size: 1.2em;
+  margin: 12px 10px 10px 0;
+  // font-family: Georgia, sans-serif;
+}
+
 form fieldset {
   margin: 0;
   padding: 0;
@@ -7,7 +15,7 @@ form fieldset {
 
 label {
   text-transform: none;
-  
+
 }
 
 .btn, input[type="submit"].btn {
@@ -64,10 +72,11 @@ input[type="text"], textarea {
 .up-vote-btn, .down-vote-btn {
   font-size: 30px;
   padding-right: 0.5em;
+  text-decoration: none;
 }
 
 .up-count, .down-count {
- padding-left: 0.2em; 
+ padding-left: 0.2em;
 }
 
 a.admin-status-btn {
@@ -99,5 +108,7 @@ select {
   max-width: 500px;
 }
 
-
+fieldset {
+  border: none;
+}
 
