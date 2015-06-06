@@ -36,7 +36,7 @@
     <%@user.comments.each do |comment| %>
       <div class="comment">
         <p class="text"><%=comment.comment%></p>
-        <p class="date">Posted by  at <%=comment.created_at%></p>
+        <p class="date">Posted by  at <%=comment.created_at.strftime('%B %d, %Y %I:%M %P')%></p>
       </div>
     <%end%>
 
