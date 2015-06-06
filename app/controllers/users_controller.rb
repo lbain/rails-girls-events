@@ -32,8 +32,8 @@ class UsersController < ApplicationController
 
     user.assign_attributes(temp_params)
 
-    if user.admin_status_changed? && user.admin_status == 'approved'
-      # user.send_invitation
+    if user.admin_status_changed?
+      user.send_admin_status_email
     end
 
     user.save
