@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   end
 
   def needs_admin_response?
-    admin_status.blank? || admin_status == 'deferred'
+    admin_status == 'applied' || admin_status == 'deferred'
   end
 
   def send_admin_status_email
