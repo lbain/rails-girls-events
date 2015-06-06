@@ -33,6 +33,14 @@ class User < ActiveRecord::Base
     @votes.select{|vote| vote.user_id == self.id && vote.vote_type == 'down'}.count
   end
 
+  def age
+    if under_18
+      'Under 18'
+    else
+      'Over 18'
+    end
+  end
+
   def send_application_thanks
     UserMailer.application_recieved(self).deliver
   end
