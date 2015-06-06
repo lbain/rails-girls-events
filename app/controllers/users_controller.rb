@@ -22,6 +22,12 @@ class UsersController < ApplicationController
     @admin_page = true
   end
 
+  def create_user_comment
+    @user = User.find params[:id]
+    @user.comments.create user_params[:comments]
+    redirect_to user_path
+  end
+
   def update_user_status
     @user = User.find params[:id]
     @user.update(user_status: params[:status])
@@ -36,17 +42,9 @@ class UsersController < ApplicationController
     redirect_to user_path
   end
 
-  def comments
-    commentable = User.create
-    comment = commentable.comments.create
-    comment.title = "First comment."
-    comment.comment = "This is the first comment."
-    comment.save
-  end
-
   private
   def user_params
-    params[:user].permit(:name, :email, :track, :under_18, :previous_attendant, :programming_experience, :reason, :tshirt_size, :tshirt_color, :status)
+    params[:user].permit(:name, :email, :track, :under_18, :previous_attendant, :programming_experience, :reason, :tshirt_size, :tshirt_color, :status, comments: [:comment])
   end
 
 end

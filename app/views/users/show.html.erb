@@ -20,8 +20,6 @@
     <p><%=@user.reason%></p>
   </div>
 
-
-
   <div class="user-info-divider">
     <h4>Admin votes</h4>
     <%= link_to vote_path(user_id: @user.id, vote_type: 'up'), class: "up-vote-btn" do %>
@@ -34,20 +32,22 @@
 
   <div class="user-info-divider">
     <h4>Admin comments</h4>
+
+    <%@user.comments.each do |comment| %>
+      <div class="comment">
+        <p class="text"><%=comment.comment%></p>
+        <p class="date">Posted by  at <%=comment.created_at%></p>
+      </div>
+    <%end%>
+
     <div class="comment">
-      <p class="text">I remember that girl from the past year. I think we should approve.</p>
-      <p class="date">Posted by Lucy at 14:30 on 8 May, 2015</p>
+      <%= simple_form_for @user do |f| %>
+        <%= f.simple_fields_for :comments do |c| %>
+          <%= c.input :comment, :class => 'admin-comment'%>
+          <%= c.button :submit, 'Submit comment'%>
+        <%end%>
+      <%end%>
     </div>
-    <div class="comment">
-      <p class="text">Yeah, <%= @user.name %> is cool! Approved ;)</p>
-      <p class="date">Posted by Amy at 14:35 on 8 May, 2015</p>
-    </div>
-    <div class="comment">
-      <p>New comment</p>
-      <p><textarea cols="1" rows="1" class="admin-comment"></textarea></p>
-    </div>
-  </div>
-  <div class="user-info-divider">
 
     <%= link_to 'Approve', admin_status_path(@user.id, :status => 'approved'), class: "btn btn-primary" %>
     <%= link_to 'Reject', admin_status_path(@user.id, :status => 'rejected'), class: "btn btn-secondary" %>

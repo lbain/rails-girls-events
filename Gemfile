@@ -31,6 +31,8 @@ gem 'mandrill_mailer'
 
 gem 'font-awesome-rails'
 
+gem 'simple_form'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
