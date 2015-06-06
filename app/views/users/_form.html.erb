@@ -38,25 +38,26 @@
   <fieldset class="steps-form__step">
     <div class="container_12">
       <span class="steps-form__step__step-number">2</span>
-      <h1>RailsGirls experience</h1>
-      <div class="steps-form__step__fields">
-        <div class="steps-form__step__field-group">
-          <label for="track">Track</label>
-          <div class="steps-form__step__field">
-            <input type="text" name="user[track]" placeholder="Rails Girls or Rails Girls Next" />
+      <h1>Rails Girls experience</h1>
+    <div class="steps-form__step__fields">
+      <div class="steps-form__step__field-group">
+        <label for="age">Have you previously attended a Rails Girls workshop?</label>
+        <div class="steps-form__step__field">
+          <div class="boolean">
+            <input type="radio" name="user[previous_attendance]" value="None" />
+            No, this would be my first time
+          </div>
+          <div class="boolean">
+            <input type="radio" name="user[previous_attendance]" value="Rails Girls" />
+            Yes, I've attended Rails Girls
+          </div>
+          <div class="boolean">
+            <input type="radio" name="user[previous_attendance]" value="Rails Girls Next" />
+            Yes, I've attended Rails Girls Next
           </div>
         </div>
       </div>
-      <div class="steps-form__step__fields">
-        <div class="steps-form__step__field-group">
-          <div class="steps-form__step__field">
-            <div class="boolean">
-              <input type="checkbox" name="user[previous_attendant]" />
-              <label for="previous_attendant">Have you attended RailsGirls events before?</label>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
   </fieldset>
   <fieldset class="steps-form__step">
     <div class="container_12">
