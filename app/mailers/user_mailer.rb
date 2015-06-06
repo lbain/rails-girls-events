@@ -32,4 +32,34 @@ class UserMailer < MandrillMailer::TemplateMailer
       important: true,
       inline_css: true)
   end
+
+  def application_rejected(user)
+    user_info = {name: user.name, email: 'lucybain@gmail.com'}
+
+    mandrill_mail(
+      template: 'application-rejected',
+      subject: 'Your Rails Girls application was not successful',
+      to: user_info,
+      vars: {
+        'NAME' => user.name,
+        'SUBJECT' => 'Your Rails Girls application was not successful'
+      },
+      important: true,
+      inline_css: true)
+  end
+
+  def application_deferred(user)
+    user_info = {name: user.name, email: 'lucybain@gmail.com'}
+
+    mandrill_mail(
+      template: 'application-deffered',
+      subject: 'Rails Girls application still pending',
+      to: user_info,
+      vars: {
+        'NAME' => user.name,
+        'SUBJECT' => 'Rails Girls application still pending'
+      },
+      important: true,
+      inline_css: true)
+  end
 end

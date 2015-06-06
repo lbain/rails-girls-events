@@ -38,9 +38,21 @@ class User < ActiveRecord::Base
   end
 
   def send_invitation
-    UserMailer.application_success(self).deliver
+
   end
 
+  def send_admin_status_email
+    case admin_status
+    when 'approved'
+      UserMailer.application_success(self).deliver
+    when 'deferred'
+      UserMailer.application_deferred(self).deliver
+    when 'rejected'
+      UserMailer.application_rejected(self).deliver
+    end
+  end
+
+  # TODO: move to helpers - it's only relevant for the views
   def admin_status_icon
     case admin_status
     when 'applied'
@@ -54,6 +66,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  # TODO: move to helpers - it's only relevant for the views
   def user_status_icon
     case user_status
     when 'accepted'
