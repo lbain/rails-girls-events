@@ -70,7 +70,7 @@ Rails.application.configure do
     :port      => 587,
     :user_name => ENV['USERNAME'],
     :password  => ENV['PASSWORD'],
-    :domain    => ENV['DOMAIN']`
+    :domain    => ENV['DOMAIN']
   }
   MandrillMailer.configure do |config|
     config.api_key = ENV['API_KEY']
