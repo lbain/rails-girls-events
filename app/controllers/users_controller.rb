@@ -22,9 +22,11 @@ class UsersController < ApplicationController
     @admin_page = true
   end
 
-  def create_user_comment
+  def update
     @user = User.find params[:id]
-    @user.comments.create user_params[:comments]
+    if user_params[:comments].present?
+      @user.comments.create user_params[:comments]
+    end
     redirect_to user_path
   end
 
