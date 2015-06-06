@@ -4,9 +4,8 @@ class VotesController < ApplicationController
   end
 
   def create
-    # ADD ME BACK IN WHEN ADMINS ARE AVAILABLE
-    # @vote = Vote.new vote_params.merge({admin_id: @current_user.id})
-    # @vote.save
+    @vote = Vote.new vote_params.merge({admin_id: current_admin.id})
+    @vote.save
     redirect_to user_path(params[:user_id])
   end
 

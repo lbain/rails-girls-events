@@ -12,7 +12,6 @@
   .container_12 {
     padding-bottom: 25px;
     padding-top: 25px;
-
   }
 }
 
@@ -49,6 +48,32 @@ $stepSize: 36px;
 
 .steps-form__step-next-btn {
   display: none;
+}
+
+.comment {
+  margin-bottom: 50px;
+}
+
+.user_comments_comment{
+  padding-top: 25px;
+  textarea {
+    height: 125px;
+  }
+}
+
+.up-vote-btn, .down-vote-btn {
+  color: #000;
+}
+
+.sessions, .registrations {
+  #container{
+    padding: 25px;
+    width: 900px;
+    margin: 0 auto;
+    font-size: 16px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
 }
 
 @media screen and (min-width: 460px) {
@@ -177,12 +202,6 @@ $stepSize: 36px;
   }
 }
 
-.up-vote-btn, .down-vote-btn {
-  &, &:hover {
-    color: black;
-  }
-}
-
 .comment {
   border: 1px solid #ddd;
   border-left: 0;
@@ -205,6 +224,16 @@ $stepSize: 36px;
 
 .shirt-image {
   display: none;
+}
+
+.user-show-container {
+  .user-name {
+    padding: 25px 0;
+  }
+
+  .up-vote-btn, .down-vote-btn {
+    color: black;
+  }
 }
 
 @media screen and (min-width: $desktop) {

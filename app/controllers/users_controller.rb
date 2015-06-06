@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
-    @admin = @current_user
+    @admin = current_admin
     @admin_page = true
   end
 

@@ -32,18 +32,20 @@
   <div class="user-info-divider">
     <h4>Admin comments</h4>
 
+    <%if @user.comments%>
     <%@user.comments.each do |comment| %>
       <div class="comment">
         <p class="text"><%=comment.comment%></p>
-        <p class="date">Posted by  at <%=comment.created_at.strftime('%B %d, %Y %I:%M %P')%></p>
+        <p class="date">Posted by <%=@admin.email%> on <%=comment.created_at.strftime('%B %d, %Y %I:%M %P')%></p>
       </div>
+    <%end%>
     <%end%>
 
     <div class="comment">
       <%= simple_form_for @user do |f| %>
         <%= f.simple_fields_for :comments do |c| %>
-          <%= c.input :comment, class: 'admin-comment'%>
-          <%= c.button :submit, 'Submit comment'%>
+          <%= c.input :comment, :label => "Leave a comment", class: 'admin-comment', :as => :text%>
+          <%= c.button :submit, 'Submit comment', class: 'btn-primary'%>
         <%end%>
       <%end%>
     </div>
