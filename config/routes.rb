@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   root 'users#new'
 
-  resources :users, except: [:edit, :destroy] do
-    resources :votes, only: [:create]
-  end
+  devise_for :admins
 
-  get '/events', to: 'events#index', as: 'events'
+  authenticate :admin do
+    resources :users, except: [:index, :edit, :destroy] do
+      resources :votes, only: [:create]
+    end
+    get '/events', to: 'events#index', as: 'events'
+  end
 
   # Left separate from update since it's not for admin
   get '/users/:id/user-status/:status', to: 'users#update_user_status', as: 'user_status'

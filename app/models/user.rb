@@ -6,7 +6,7 @@
 #  name                   :string
 #  email                  :string
 #  track                  :string
-#  previous_attendant     :boolean
+#  previous_attendance    :string
 #  programming_experience :text
 #  reason                 :text
 #  tshirt_size            :string
