@@ -12,7 +12,6 @@
   .container_12 {
     padding-bottom: 25px;
     padding-top: 25px;
-
   }
 }
 
@@ -64,6 +63,12 @@ $stepSize: 36px;
 
 .up-vote-btn, .down-vote-btn {
   color: #000;
+}
+
+.sessions, .registrations {
+  #container{
+    padding: 25px;
+  }
 }
 
 @media screen and (min-width: 460px) {
