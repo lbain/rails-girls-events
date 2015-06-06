@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :admins
 
   authenticate :admin do
-    resources :users, except: [:index, :edit, :destroy] do
+    resources :users, except: [:edit, :destroy] do
       resources :votes, only: [:create]
     end
     get '/events', to: 'events#index', as: 'events'
