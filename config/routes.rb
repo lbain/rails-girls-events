@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root 'users#new'
 
+  devise_for :admins
   resources :users, except: [:edit, :update, :destroy]
   get '/users/:id/user-status/:status', to: 'users#update_user_status', as: 'user_status'
   get '/users/:id/admin-status/:status', to: 'users#update_admin_status', as: 'admin_status'

@@ -152,9 +152,3 @@ User.create(name: 'Melody Glenn',
     tshirt_size: 'S',
     user_status: 'accepted',
     admin_status: 'approved')
-
-#create admins
-Admin.create(username: 'Amy Simmons', email: 'amysimmons.abc@gmail.com')
-Admin.create(username: 'Lucy Bain', email: 'lucybain@gmail.com')
-Admin.create(username: 'Angie', email: 'angie@gmail.com')
-
