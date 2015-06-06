@@ -3,6 +3,13 @@
   <h1 class="user-name">
     <!-- <span class="fa fa-user"></span>&nbsp;&nbsp; -->
     <%=@user.name%></h1>
+
+  <div class="user-info-divider">
+    <h4>Rails Girls experience:</h4>
+    <p>Previous attendant: <%=@user.previous_attendant%></p>
+    <p>Tracks: <%=@user.track%></p>
+  </div>
+
   <div class="user-info-divider">
     <h4>Programming experience:</h4>
     <p><%=@user.programming_experience%></p>
@@ -13,7 +20,7 @@
     <p><%=@user.reason%></p>
   </div>
 
-  
+
 
   <div class="user-info-divider">
     <h4>Admin votes</h4>
