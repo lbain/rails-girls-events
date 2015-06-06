@@ -13,11 +13,6 @@ body {
   width: 100%;
 }
 
-.container_12 a {
-  color: white;
-  font-size: 24px;
-}
-
 .container {
   font-size: 16px;
   padding-top: 35px;
@@ -79,6 +74,11 @@ header {
   color: #fff;
   padding: 30px 0;
   background: $brand-color;
+
+  .container_12 a {
+    color: white;
+    font-size: 24px;
+  }
 }
 
 @media screen and (min-width: $tablet) {
