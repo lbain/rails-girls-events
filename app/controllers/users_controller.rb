@@ -48,9 +48,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params[:user].permit(:name, :email, :gender, :track, :under_18, :previous_attendance,
-      :programming_experience, :reason, :tshirt_size,
-      :admin_status, :user_status, comments: [:comment])
-    params.require(:user).permit(dietary_requirements: [])
+    params.require(:user).permit(:name, :email, :gender, :track, :under_18, :previous_attendance,
+      :programming_experience, :reason, :shirt_size, :admin_status, :user_status, dietary_requirements: [], comments: [:comment])
   end
 end
