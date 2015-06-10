@@ -17,9 +17,12 @@
         <a id="logo" href="/">
           <%= image_tag 'railsgirls-logo.png' %>
         </a>
+        <div class="nav-links">
         <% if admin_signed_in? %>
+          <%= link_to 'Events', events_path, class: 'user-link' %>
           <%= link_to 'Sign Out', destroy_admin_session_path, class: 'user-link' %>
         <% end %>
+      </div>
       </div>
     </header>
 
