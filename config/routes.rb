@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :votes, only: [:create]
     end
     get '/events', to: 'events#index', as: 'events'
+    get '/data', to: 'users#data', as: 'data'
   end
 
   resources :users, only: [:create]

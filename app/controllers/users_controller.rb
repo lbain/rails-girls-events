@@ -40,6 +40,11 @@ class UsersController < ApplicationController
     redirect_to user_path(user)
   end
 
+  def data
+    @users = User.all
+    @admin_page = true
+  end
+
   # Left separate from update since it's not for admin
   def update_user_status
     @user = User.find params[:id]
@@ -51,4 +56,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :gender, :track, :under_18, :previous_attendance,
       :programming_experience, :reason, :shirt_size, :admin_status, :user_status, dietary_requirements: [], comments: [:comment])
   end
+
 end

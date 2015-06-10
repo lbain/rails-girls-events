@@ -84,4 +84,67 @@ class User < ActiveRecord::Base
       'fa-times'
     end
   end
+
+#FOR the data page
+  def self.approved_count
+    User.where(:admin_status => 'approved').count
+  end
+
+  def self.deferred_count
+    User.where(:admin_status => 'deferred').count
+  end
+
+  def self.rejected_count
+    User.where(:admin_status => 'rejected').count
+  end
+
+  def self.accepted_count
+    User.where(:user_status => 'accepted').count
+  end
+
+  def self.declined_count
+    User.where(:user_status => 'declined').count
+  end
+
+  def self.beginner_count
+    User.where(:track => 'beginner', :user_status => 'accepted').count
+  end
+
+  def self.next_count
+    User.where(:track => 'next', :user_status => 'accepted').count
+  end
+
+  def self.vegetarian_count
+
+  end
+
+  def self.vegan_count
+     # User.where(:dietary_requirements => 'vegan', :user_status => 'accepted').count
+  end
+
+  def self.gluten_free_count
+  end
+
+  def self.dairy_free_count
+  end
+
+  def self.xs_count
+    User.where(:tshirt_size => 'XS', :user_status => 'accepted').count
+  end
+
+  def self.s_count
+    User.where(:tshirt_size => 'S', :user_status => 'accepted').count
+  end
+
+  def self.m_count
+    User.where(:tshirt_size => 'M', :user_status => 'accepted').count
+  end
+
+  def self.l_count
+    User.where(:tshirt_size => 'L', :user_status => 'accepted').count
+  end
+
+  def self.xl_count
+    User.where(:tshirt_size => 'XL', :user_status => 'accepted').count
+  end
 end

@@ -1,0 +1,106 @@
+<div class="container_12 container">
+  <h1>Data</h1>
+  <h2>Admin status</h2>
+  <table class='user-table table'>
+    <tr>
+      <th>Status</th>
+      <th class="icon-cell">Count</th>
+    </tr>
+    <tr>
+      <td>Approved</td>
+      <td><%=@users.approved_count%></td>
+    </tr>
+    <tr>
+      <td>Deferred</td>
+      <td><%=@users.deferred_count%></td>
+    </tr>
+    <tr>
+      <td>Rejected</td>
+      <td><%=@users.rejected_count%></td>
+    </tr>
+  </table>
+  <h2>User status</h2>
+  <table class='user-table table'>
+    <tr>
+      <th>Status</th>
+      <th class="icon-cell">Count</th>
+    </tr>
+    <tr>
+      <td>Accepted</td>
+      <td><%=@users.accepted_count%></td>
+    </tr>
+    <tr>
+      <td>Declined</td>
+      <td><%=@users.declined_count%></td>
+    </tr>
+  </table>
+  <h2>Track preferences (accepted attendees only)</h2>
+  <table class='user-table table'>
+    <tr>
+      <th>Track</th>
+      <th class="icon-cell">Count</th>
+    </tr>
+    <tr>
+      <td>Rails Girls Beginner</td>
+      <td><%=@users.beginner_count%></td>
+    </tr>
+    <tr>
+      <td>Rail Girls Next</td>
+      <td><%=@users.next_count%></td>
+    </tr>
+  </table>
+  <h2>Dietary requirememnts (accepted attendees only)</h2>
+  <table class='user-table table'>
+    <tr>
+      <th>Diet</th>
+      <th class="icon-cell">Count</th>
+    </tr>
+    <tr>
+      <td>Vegetarian</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Vegan</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Gluten Free</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Dairy Free</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>None</td>
+      <td></td>
+    </tr>
+  </table>
+  <h2>Tshirt sizes (accepted attendees only)</h2>
+  <table class='user-table table'>
+    <tr>
+      <th>Size</th>
+      <th class="icon-cell">Count</th>
+    </tr>
+    <tr>
+      <td>XS</td>
+      <td><%=@users.xs_count%></td>
+    </tr>
+    <tr>
+      <td>S</td>
+      <td><%=@users.s_count%></td>
+    </tr>
+    <tr>
+      <td>M</td>
+      <td><%=@users.m_count%></td>
+    </tr>
+    <tr>
+      <td>L</td>
+      <td><%=@users.l_count%></td>
+    </tr>
+    <tr>
+      <td>XL</td>
+      <td><%=@users.xl_count%></td>
+    </tr>
+  </table>
+</div>
