@@ -10,12 +10,13 @@
 #  programming_experience :text
 #  reason                 :text
 #  tshirt_size            :string
-#  tshirt_color           :string
 #  admin_status           :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  under_18               :boolean
 #  user_status            :string
+#  gender                 :string
+#  dietary_requirements   :json
 #
 
 class User < ActiveRecord::Base

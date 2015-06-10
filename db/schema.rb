@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606061613) do
+ActiveRecord::Schema.define(version: 20150610015230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
+    t.string   "full_name"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -57,13 +58,13 @@ ActiveRecord::Schema.define(version: 20150606061613) do
     t.text     "programming_experience"
     t.text     "reason"
     t.string   "tshirt_size"
-    t.string   "tshirt_color"
     t.string   "admin_status"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.boolean  "under_18"
     t.string   "user_status"
     t.string   "gender"
+    t.json     "dietary_requirements"
   end
 
   create_table "votes", force: :cascade do |t|

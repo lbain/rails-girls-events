@@ -77,6 +77,26 @@
   <fieldset class="steps-form__step">
     <div class="container_12">
       <span class="steps-form__step__step-number">3</span>
+      <h1>Choose a track</h1>
+    <div class="steps-form__step__fields">
+      <div class="steps-form__step__field-group">
+        <label for="age">Which track are you interested in?</label>
+        <div class="steps-form__step__field">
+          <div class="boolean">
+            <input type="radio" name="user[track]" value="beginner" />
+            Rails Girls Beginner
+          </div>
+          <div class="boolean">
+            <input type="radio" name="user[track]" value="next" />
+            Rails Girls Next
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="steps-form__step">
+    <div class="container_12">
+      <span class="steps-form__step__step-number">4</span>
       <h1>Tell us a bit more about yourself</h1>
       <div class="steps-form__step__fields">
         <div class="steps-form__step__field-group">
@@ -97,37 +117,62 @@
   </fieldset>
   <fieldset class="steps-form__step">
     <div class="container_12">
-      <span class="steps-form__step__step-number">4</span>
-      <h1>Almost there!</h1>
-      <div class="steps-form__step__fields">
-        <div class="steps-form__step__field-group">
-          <label for="tshirt_size">T-shirt size</label>
-          <div class="steps-form__step__field">
-            <div class="boolean">
-              <input type="radio" name="user[tshirt_size]" value="xs" />
-              X-Small
-            </div>
-            <div class="boolean">
-              <input type="radio" name="user[tshirt_size]" value="s" />
-              Small
-            </div>
-            <div class="boolean">
-              <input type="radio" name="user[tshirt_size]" value="m" />
-              Medium
-            </div>
-            <div class="boolean">
-              <input type="radio" name="user[tshirt_size]" value="l" />
-              Large
-            </div>
-            <div class="boolean">
-              <input type="radio" name="user[tshirt_size]" value="xl" />
-              X-Large
-            </div>
+      <span class="steps-form__step__step-number">5</span>
+      <h1>Almost there</h1>
+    <div class="steps-form__step__fields">
+      <div class="steps-form__step__field-group">
+        <label for="dietary_requirements">Dietary requirements</label>
+        <div class="steps-form__step__field">
+          <div class="checkbox">
+            <input type="checkbox" name="user[dietary_requirements][]" value="vegetarian" />
+            Vegetarian
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="user[dietary_requirements][]" value="vegan" />
+            Vegan
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="user[dietary_requirements][]" value="gluten free" />
+            Gluten free
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="user[dietary_requirements][]" value="dairy free" />
+            Dairy free
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="user[dietary_requirements][]" value="none" />
+            None
           </div>
         </div>
       </div>
-      <div class="steps-form__step-next-btn">
-        <input type="submit" name="user[submit]" class="btn btn-primary" value="Apply" />
+    </div>
+    <div class="steps-form__step__field-group">
+      <label for="tshirt_size">T-shirt size</label>
+      <div class="steps-form__step__field">
+        <div class="boolean">
+          <input type="radio" name="user[tshirt_size]" value="xs" />
+          X-Small
+        </div>
+        <div class="boolean">
+          <input type="radio" name="user[tshirt_size]" value="s" />
+          Small
+        </div>
+        <div class="boolean">
+          <input type="radio" name="user[tshirt_size]" value="m" />
+          Medium
+        </div>
+        <div class="boolean">
+          <input type="radio" name="user[tshirt_size]" value="l" />
+          Large
+        </div>
+        <div class="boolean">
+          <input type="radio" name="user[tshirt_size]" value="xl" />
+          X-Large
+        </div>
+      </div>
+    </div>
+    <div class="steps-form__step-next-btn">
+      <input type="submit" name="user[submit]" class="btn btn-primary" value="Apply" />
       </div>
     </div>
   </fieldset>
