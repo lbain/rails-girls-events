@@ -49,33 +49,6 @@
       <td><%=@users.next_count%></td>
     </tr>
   </table>
-  <h2>Dietary requirememnts (accepted attendees only)</h2>
-  <table class='user-table table'>
-    <tr>
-      <th>Diet</th>
-      <th class="icon-cell">Count</th>
-    </tr>
-    <tr>
-      <td>Vegetarian</td>
-      <td><%=@users.vegetarian_count%></td>
-    </tr>
-    <tr>
-      <td>Vegan</td>
-      <td><%=@users.vegan_count%></td>
-    </tr>
-    <tr>
-      <td>Gluten Free</td>
-      <td><%=@users.gluten_free_count%></td>
-    </tr>
-    <tr>
-      <td>Dairy Free</td>
-      <td><%=@users.dairy_free_count%></td>
-    </tr>
-    <tr>
-      <td>None</td>
-      <td><%=@users.no_requirements_count%></td>
-    </tr>
-  </table>
   <h2>Tshirt sizes (accepted attendees only)</h2>
   <table class='user-table table'>
     <tr>
@@ -102,5 +75,20 @@
       <td>XL</td>
       <td><%=@users.xl_count%></td>
     </tr>
+  </table>
+ <h2>Dietary requirememnts (accepted attendees only)</h2>
+  <table class='user-table table'>
+    <tr>
+      <th>Applicant</th>
+      <th class="icon-cell">Dietry requirements</th>
+    </tr>
+    <% @users.has_dietary_requirement.each do |u| %>
+    <tr>
+      <td><%=u.name%></td>
+      <td>
+        <%=u.dietary_requirements.join(", ")%>
+      </td>
+    </tr>
+    <% end %>
   </table>
 </div>

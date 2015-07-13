@@ -114,24 +114,10 @@ class User < ActiveRecord::Base
     User.where(:track => 'next', :user_status => 'accepted').count
   end
 
-  def self.vegetarian_count
-    User.where('dietary_requirements::text LIKE ?', '%vegetarian%').count
-  end
-
-  def self.vegan_count
-    User.where('dietary_requirements::text LIKE ?', '%vegan%').count
-  end
-
-  def self.gluten_free_count
-    User.where('dietary_requirements::text LIKE ?', '%gluten free%').count
-  end
-
-  def self.dairy_free_count
-    User.where('dietary_requirements::text LIKE ?', '%dairy free%').count
-  end
-
-  def self.no_requirements_count
-    User.where('dietary_requirements::text LIKE ?', '%none%').count
+  def self.has_dietary_requirement
+    users = User.where(:user_status => 'accepted')
+    users_without_nil = users.select{|u| !u[:dietary_requirements].nil?}
+    users_without_nil.select {|u|u[:dietary_requirements].to_a.exclude? 'none'}
   end
 
   def self.xs_count
