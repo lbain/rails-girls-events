@@ -58,15 +58,33 @@ span.btn, a.btn {
   }
 }
 
+.steps-form__step__field span {
+  display: block;
+}
+
+form .error {
+  color: $brand-color;
+  font-size: 1.5em;
+}
+
+form .field_with_errors {
+  border: 2px solid $brand-color;
+  padding: 20px;
+  margin-right: -22px;
+}
+
 input, textarea {
   background-color: white;
   border: 1px solid #ccc;
 }
 
-input[type="text"], textarea {
+input[type="text"],
+input[type="email"],
+textarea {
   box-sizing: border-box;
   max-width: 500px;
   width: 100%;
+  display: block;
 }
 
 .up-vote-btn, .down-vote-btn {
