@@ -20,8 +20,13 @@
 #
 
 class User < ActiveRecord::Base
-  acts_as_commentable
+  validates :name, :email, :track, :previous_attendance, :programming_experience,
+            :reason, :tshirt_size, :user_status, :gender, presence: true
+  validates_inclusion_of :under_18, in: [true, false]
 
+
+  # relations
+  acts_as_commentable
   has_many :votes
 
   def count_up_votes
