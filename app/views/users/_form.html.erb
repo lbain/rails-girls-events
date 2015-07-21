@@ -1,51 +1,33 @@
-<%= form_tag(users_path, class: 'steps-form') do %>
+<%= simple_form_for @user, class: 'steps-form' do |f| %>
   <fieldset class="steps-form__step">
     <div class="container_12">
       <span class="steps-form__step__step-number">1</span>
       <h1>A few details</h1>
       <div class="steps-form__step__fields">
         <div class="steps-form__step__field-group">
-          <label for="name">Name</label>
+          <%= f.input :name, class: 'steps-form__step__field' %>
+        </div>
+      </div>
+      <div class="steps-form__step__fields">
+        <div class="steps-form__step__field-group">
+          <%= f.input :email, class: 'steps-form__step__field' %>
+        </div>
+      </div>
+      <div class="steps-form__step__fields">
+        <div class="steps-form__step__field-group">
           <div class="steps-form__step__field">
-            <input type="text" name="user[name]" />
+            <%= f.input :under_18, label: 'Are you under 18?', as: :radio_buttons, class: 'steps-form__step__field' %>
           </div>
         </div>
       </div>
       <div class="steps-form__step__fields">
         <div class="steps-form__step__field-group">
-          <label for="email">Email</label>
           <div class="steps-form__step__field">
-            <input type="text" name="user[email]" />
-          </div>
-        </div>
-      </div>
-      <div class="steps-form__step__fields">
-        <div class="steps-form__step__field-group">
-          <label for="age">Age</label>
-          <div class="steps-form__step__field">
-            <div class="boolean">
-              <input type="radio" name="user[under_18]" value="yes" />
-              Under 18
-            </div>
-            <div class="boolean">
-              <input type="radio" name="user[under_18]" value="no" />
-              18 or older
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="steps-form__step__fields">
-        <div class="steps-form__step__field-group">
-          <label for="age">Gender</label>
-          <div class="steps-form__step__field">
-            <div class="boolean">
-              <input type="radio" name="user[gender]" value="female" />
-              Female
-            </div>
-            <div class="boolean">
-              <input type="radio" name="user[gender]" value="male" />
-              Male
-            </div>
+            <%= f.input :gender,
+                label: 'How do you identify?',
+                collection: ['Female', 'Male', 'Other'],
+                as: :radio_buttons,
+                class: 'steps-form__step__field' %>
           </div>
         </div>
       </div>
@@ -56,36 +38,32 @@
       <h1>Rails Girls experience</h1>
     <div class="steps-form__step__fields">
       <div class="steps-form__step__field-group">
-        <label for="age">Have you previously attended a Rails Girls workshop?</label>
+
+      <div class="steps-form__step__field-group">
         <div class="steps-form__step__field">
-          <div class="boolean">
-            <input type="radio" name="user[previous_attendance]" value="None" />
-            No, this would be my first time
-          </div>
-          <div class="boolean">
-            <input type="radio" name="user[previous_attendance]" value="Rails Girls" />
-            Yes, I've attended Rails Girls
-          </div>
-          <div class="boolean">
-            <input type="radio" name="user[previous_attendance]" value="Rails Girls Next" />
-            Yes, I've attended Rails Girls Next
-          </div>
-        </div>
+          <%= f.input :previous_attendance,
+              label: "Have you previously attended a Rails Girls workshop?",
+              collection:
+              [['No, this would be my first time', 'None'],
+               ["Yes, I've attended Rails Girls", 'Rails Girls'],
+               ["Yes, I've attended Rails Girls Next", 'Rails Girls Next']],
+              as: :radio_buttons,
+              include_hidden: false %>
+         </div>
       </div>
     </div>
     <div class="steps-form__step__fields">
       <div class="steps-form__step__field-group">
-        <label for="age">Which track are you interested in?</label>
+
+      <div class="steps-form__step__field-group">
         <div class="steps-form__step__field">
-          <div class="boolean">
-            <input type="radio" name="user[track]" value="beginner" />
-            Rails Girls Beginner
-          </div>
-          <div class="boolean">
-            <input type="radio" name="user[track]" value="next" />
-            Rails Girls Next
-          </div>
-        </div>
+          <%= f.input :track,
+              label: "Which track are you interested in?",
+              collection:
+              [['Rails Girls Beginner', 'beginner'],
+               ["Rails Girls Next", 'next']],
+              as: :radio_buttons %>
+         </div>
       </div>
     </div>
   </fieldset>
@@ -95,18 +73,12 @@
       <h1>Tell us a bit more about yourself</h1>
       <div class="steps-form__step__fields">
         <div class="steps-form__step__field-group">
-          <label for="programming_experience">Programming experience</label>
-          <div class="steps-form__step__field">
-            <textarea name="user[programming_experience]"></textarea>
-          </div>
+          <%= f.input :programming_experience, label: "What (if any) programming experience have you had?", class: 'steps-form__step__field' %>
         </div>
       </div>
       <div class="steps-form__step__fields">
         <div class="steps-form__step__field-group">
-          <label for="reason">Why would you like to come?</label>
-          <div class="steps-form__step__field">
-            <textarea name="user[reason]"></textarea>
-          </div>
+          <%= f.input :reason, label: "Why would you like to come?", class: 'steps-form__step__field' %>
         </div>
       </div>
   </fieldset>
@@ -116,62 +88,31 @@
       <h1>Almost there</h1>
     <div class="steps-form__step__fields">
       <div class="steps-form__step__field-group">
-        <label for="dietary_requirements">Dietary requirements</label>
         <div class="steps-form__step__field">
-          <div class="checkbox">
-            <input type="checkbox" name="user[dietary_requirements][]" value="vegetarian" />
-            Vegetarian
-          </div>
-          <div class="checkbox">
-            <input type="checkbox" name="user[dietary_requirements][]" value="vegan" />
-            Vegan
-          </div>
-          <div class="checkbox">
-            <input type="checkbox" name="user[dietary_requirements][]" value="gluten free" />
-            Gluten free
-          </div>
-          <div class="checkbox">
-            <input type="checkbox" name="user[dietary_requirements][]" value="dairy free" />
-            Dairy free
-          </div>
-          <div class="checkbox">
-            <input type="checkbox" name="user[dietary_requirements][]" value="none" />
-            None
-          </div>
+          <%= f.input :dietary_requirements,
+              label: 'Dietary requirements (if any)',
+              collection: ['Vegetarian', 'Vegan', 'Gluten free', 'Dairy free'],
+              as: :check_boxes,
+              include_hidden: false %>
         </div>
       </div>
     </div>
     <div class="steps-form__step__field-group">
-      <label for="tshirt_size">T-shirt size</label>
       <div class="steps-form__step__field">
-        <div class="boolean">
-          <input type="radio" name="user[tshirt_size]" value="xs" />
-          X-Small
-        </div>
-        <div class="boolean">
-          <input type="radio" name="user[tshirt_size]" value="s" />
-          Small
-        </div>
-        <div class="boolean">
-          <input type="radio" name="user[tshirt_size]" value="m" />
-          Medium
-        </div>
-        <div class="boolean">
-          <input type="radio" name="user[tshirt_size]" value="l" />
-          Large
-        </div>
-        <div class="boolean">
-          <input type="radio" name="user[tshirt_size]" value="xl" />
-          X-Large
-        </div>
+        <%= f.input :tshirt_size,
+            label: 'T-shirt size',
+            collection:
+            [['X-Small', 'xs'],
+             ["Small", 's'],
+             ["Medium", 'm'],
+             ["Large", 'l'],
+             ["X-Large", 'xl']],
+            as: :radio_buttons %>
       </div>
     </div>
     <div class="steps-form__step__fields">
       <div class="steps-form__step__field-group">
-        <label for="extra_info">Anything else we need to know?</label>
-        <div class="steps-form__step__field">
-          <textarea name="user[extra_info]"></textarea>
-        </div>
+          <%= f.input :extra_info, label: "Anything else we need to know?", class: 'steps-form__step__field' %>
       </div>
     </div>
     <div class="steps-form__step-next-btn">
