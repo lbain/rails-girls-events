@@ -18,6 +18,10 @@ class UserMailer < MandrillMailer::TemplateMailer
 
   def application_success(user)
     user_info = {name: user.name, email:  user.email}
+    options = {}
+    if !Rails.env.production?
+      options[:port] = 3000
+    end
 
     mandrill_mail(
       template: 'application-successful',
@@ -26,8 +30,8 @@ class UserMailer < MandrillMailer::TemplateMailer
       vars: {
         'NAME' => user.name,
         'SUBJECT' => 'Welcome to Rails Girls!',
-        'ACCEPT_LINK' => user_status_url(user, 'accepted', port: 3000),
-        'DELCLINE_LINK' => user_status_url(user, 'declined', port: 3000),
+        'ACCEPT_LINK' => user_status_url(user, 'accepted', options),
+        'DELCLINE_LINK' => user_status_url(user, 'declined', options),
       },
       important: true,
       inline_css: true)
