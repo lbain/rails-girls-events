@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   end
 
   def send_application_thanks
-    UserMailer.application_recieved(self).deliver
+    UserMailer.application_received(self).deliver
   end
 
   def needs_admin_response?
