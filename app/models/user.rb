@@ -21,7 +21,7 @@
 
 class User < ActiveRecord::Base
   validates :name, :email, :track, :previous_attendance, :programming_experience,
-            :reason, :tshirt_size, :user_status, :gender, presence: true
+            :reason, :tshirt_size, :gender, presence: true
   validates_inclusion_of :under_18, in: [true, false]
 
 
