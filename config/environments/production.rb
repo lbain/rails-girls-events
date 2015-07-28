@@ -64,6 +64,7 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { host: 'https://rails-girls-events.herokuapp.com' }
+  config.mandrill_mailer.default_url_options = { host: 'https://rails-girls-events.herokuapp.com' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     :address   => "smtp.mandrillapp.com",
