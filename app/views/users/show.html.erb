@@ -76,6 +76,9 @@
       <%= link_to 'Reject', user_path(@user.id, user: { admin_status: 'rejected' } ), method: :patch, class: "btn btn-secondary" %>
       <%= link_to 'Defer', user_path(@user.id, user: { admin_status: 'deferred' } ), method: :patch, class: "btn btn-secondary" %>
     <% end %>
+    <div>
+      <%= link_to "Delete", { action: "destroy", id: @user.id }, method: :delete, data: { confirm: "Are you sure you want to permanetly delete #{@user.name}? This action cannot be undone." }, class: "btn btn-secondary" %>
+    </div>
   </div>
 
 </div>

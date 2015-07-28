@@ -11,6 +11,14 @@ class UsersController < ApplicationController
     render :new
   end
 
+  def destroy
+    user = User.find(params[:id])
+    if user
+      user.destroy
+    end
+    redirect_to users_path
+  end
+
   def index
     @users = User.all
     @admin_page = true

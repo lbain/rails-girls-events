@@ -8,10 +8,18 @@
     </tr>
     <% @users.each do |user| %>
       <tr>
-        <td class="icon-cell"><i class="fa <%= user.admin_status_icon %>"></i></td>
-        <td><%= link_to user.name, user_path(user) %></td>
-        <td><%= user.created_at.strftime('%B %d, %Y %I:%M %P') %></td>
-        <td class="icon-cell"><i class="fa <%= user.user_status_icon %>"></i></td>
+        <td class="icon-cell">
+          <i class="fa <%= user.admin_status_icon %>"></i>
+        </td>
+        <td>
+          <%= link_to user.name, user_path(user) %>
+        </td>
+        <td>
+          <%= user.created_at.strftime('%B %d, %Y %I:%M %P') %>
+        </td>
+        <td class="icon-cell">
+          <i class="fa <%= user.user_status_icon %>"></i>
+        </td>
       </tr>
     <% end %>
   </table>
