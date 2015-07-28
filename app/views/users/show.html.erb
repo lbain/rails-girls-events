@@ -6,39 +6,12 @@
     </h1>
   <% end %>
 
-  <div class="user-info-divider">
-    <h4>Name:</h4>
-    <p><%=@user.name%></p>
-  </div>
-
-  <div class="user-info-divider">
-    <h4>Email:</h4>
-    <p><%=@user.email%></p>
-  </div>
-
-  <div class="user-info-divider">
-    <h4>Age:</h4>
-    <p><%=@user.age%></p>
-  </div>
-
-  <div class="user-info-divider">
-    <h4>Gender:</h4>
-    <p><%=@user.gender%></p>
-  </div>
-  <div class="user-info-divider">
-    <h4>Rails Girls experience:</h4>
-    <p><%=@user.previous_attendance%></p>
-  </div>
-
-  <div class="user-info-divider">
-    <h4>Programming experience:</h4>
-    <p><%=@user.programming_experience%></p>
-  </div>
-
-  <div class="user-info-divider">
-    <h4>Reason for applying:</h4>
-    <p><%=@user.reason%></p>
-  </div>
+  <% displayed_attributes.each do |attribute, title| %>
+    <div class="user-info-divider">
+      <h4><%= title %>:</h4>
+      <p><%=@user.send(attribute)%></p>
+    </div>
+  <% end %>
 
   <div class="user-info-divider">
     <h4>Admin votes</h4>
