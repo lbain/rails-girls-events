@@ -126,22 +126,22 @@ class User < ActiveRecord::Base
   end
 
   def self.xs_count
-    User.where(:tshirt_size => 'XS', :user_status => 'accepted').count
+    User.where(:tshirt_size => 'XS').count
   end
 
   def self.s_count
-    User.where(:tshirt_size => 'S', :user_status => 'accepted').count
+    User.where(:tshirt_size => 'S').count
   end
 
   def self.m_count
-    User.where(:tshirt_size => 'M', :user_status => 'accepted').count
+    User.where(:tshirt_size => 'M').count
   end
 
   def self.l_count
-    User.where(:tshirt_size => 'L', :user_status => 'accepted').count
+    User.where(:tshirt_size => 'L').count
   end
 
   def self.xl_count
-    User.where(:tshirt_size => 'XL', :user_status => 'accepted').count
+    User.where(:tshirt_size => 'XL').count
   end
 end
