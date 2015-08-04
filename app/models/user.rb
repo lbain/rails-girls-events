@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
 
   def important_attributes
     attributes = []
-    attributes << track if track == 'Rails Girls Next'
+    attributes << track if track == 'next'
     attributes << gender if gender == 'Male'
     attributes << age if under_18
     attributes
