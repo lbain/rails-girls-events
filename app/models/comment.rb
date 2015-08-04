@@ -27,4 +27,12 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :admin
+
+  def admin_email
+    if admin
+      admin.email
+    else
+      'someone'
+    end
+  end
 end
