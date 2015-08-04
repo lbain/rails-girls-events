@@ -34,7 +34,8 @@ class UsersController < ApplicationController
     user = User.find params[:id]
     temp_params = user_params
     if temp_params[:comments].present?
-      comment = temp_params[:comments].merge(admin_id: current_admin.id)
+      comment = temp_params[:comments]
+      comment = comment.merge(admin_id: current_admin.id) if current_admin
       user.comments.create(comment)
       temp_params.delete(:comments)
     end
