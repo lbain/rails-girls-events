@@ -3,7 +3,7 @@ module UsersHelper
     { name: "Name",
       email: "Email",
       gender: "Gender",
-      under_18: "Age",
+      age: "Age",
       track: "Track",
       previous_attendance: "Rails Girls experience",
       programming_experience: "Programming experience",
