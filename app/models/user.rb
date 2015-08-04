@@ -77,8 +77,6 @@ class User < ActiveRecord::Base
   # TODO: move to helpers - it's only relevant for the views
   def admin_status_icon
     case admin_status
-    when 'applied'
-      'fa-exclamation-triangle'
     when 'approved'
       'fa-check'
     when 'deferred'
