@@ -47,6 +47,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def important_attributes
+    attributes = []
+    attributes << track if track == 'Rails Girls Next'
+    attributes << gender if gender == 'Male'
+    attributes << age if under_18
+    attributes
+  end
+
   def send_application_thanks
     UserMailer.application_received(self).deliver
   end

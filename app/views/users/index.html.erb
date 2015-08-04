@@ -5,6 +5,7 @@
       <th>Name</th>
       <th>Applied on</th>
       <th class="icon-cell">Their response</th>
+      <th>Quick review</th>
     </tr>
     <% @users.each do |user| %>
       <tr>
@@ -20,6 +21,7 @@
         <td class="icon-cell">
           <i class="fa <%= user.user_status_icon %>"></i>
         </td>
+        <td> <%= user.important_attributes.join(', ') %> </td>
       </tr>
     <% end %>
   </table>
