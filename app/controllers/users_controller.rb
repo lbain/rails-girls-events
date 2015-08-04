@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.order(:admin_status, :user_status, :created_at).all
     @admin_page = true
   end
 
