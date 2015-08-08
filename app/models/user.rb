@@ -101,6 +101,10 @@ class User < ActiveRecord::Base
   end
 
 #FOR the data page
+  def self.applied_count
+    User.where(:admin_status => 'applied').count
+  end
+
   def self.approved_count
     User.where(:admin_status => 'approved').count
   end

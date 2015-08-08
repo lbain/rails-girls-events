@@ -7,6 +7,10 @@
       <th class="icon-cell">Count</th>
     </tr>
     <tr>
+      <td>Applied (no admin response)</td>
+      <td><%=@users.applied_count%></td>
+    </tr>
+    <tr>
       <td>Approved</td>
       <td><%=@users.approved_count%></td>
     </tr>
@@ -17,6 +21,10 @@
     <tr>
       <td>Rejected</td>
       <td><%=@users.rejected_count%></td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td><%=@users.count%></td>
     </tr>
   </table>
   <h2>User status</h2>
