@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
   acts_as_commentable
   has_many :votes
 
+  # scopes
+  scope :needs_admin_response, -> { where('admin_status=? OR admin_status=?', 'applied', 'deferred') }
+  scope :has_admin_response, -> { where('admin_status!=? AND admin_status!=?', 'applied', 'deferred') }
+
   def count_up_votes
     @votes = Vote.all
     @votes.select{|vote| vote.user_id == self.id && vote.vote_type == 'up'}.count

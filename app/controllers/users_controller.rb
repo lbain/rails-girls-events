@@ -20,7 +20,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.order(:admin_status, :user_status, :created_at).all
+    @users_applied = User.needs_admin_response.order(:created_at).all
+    @users_responded = User.has_admin_response.order(:admin_status, :user_status, :created_at).all
     @admin_page = true
   end
 
