@@ -84,7 +84,7 @@
       <td><%=@users.xl_count%></td>
     </tr>
   </table>
- <h2>Dietary requirememnts (accepted attendees only)</h2>
+  <h2>Dietary requirememnts (accepted attendees only)</h2>
   <table class='user-table table'>
     <tr>
       <th>Applicant</th>
@@ -96,6 +96,34 @@
       <td>
         <%=u.dietary_requirements.join(", ")%>
       </td>
+    </tr>
+    <% end %>
+  </table>
+
+  <h2>Email lists (accepted attendees only)</h2>
+  <h4>Rails Girls</h4>
+  <table class='user-table table'>
+    <tr>
+      <th>Email</th>
+      <th>Notes</th>
+    </tr>
+    <% @users.beginner_track.attending.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.comments.join %></td>
+    </tr>
+    <% end %>
+  </table>
+  <h4>Rails Girls Next</h4>
+  <table class='user-table table'>
+    <tr>
+      <th>Email</th>
+      <th>Notes</th>
+    </tr>
+    <% @users.next_track.attending.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.comments.join %></td>
     </tr>
     <% end %>
   </table>
