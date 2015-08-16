@@ -110,7 +110,7 @@
     <% @users.beginner_track.attending.each do |user| %>
     <tr>
       <td><%= user.email %></td>
-      <td><%= user.comments.join %></td>
+      <td><%= user.comments.pluck(:comment).join('; ') %></td>
     </tr>
     <% end %>
   </table>
@@ -123,7 +123,7 @@
     <% @users.next_track.attending.each do |user| %>
     <tr>
       <td><%= user.email %></td>
-      <td><%= user.comments.join %></td>
+      <td><%= user.comments.pluck(:comment).join('; ') %></td>
     </tr>
     <% end %>
   </table>
