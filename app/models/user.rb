@@ -32,6 +32,9 @@ class User < ActiveRecord::Base
   # scopes
   scope :needs_admin_response, -> { where('admin_status=? OR admin_status=?', 'applied', 'deferred') }
   scope :has_admin_response, -> { where('admin_status!=? AND admin_status!=?', 'applied', 'deferred') }
+  scope :beginner_track, -> { where(track: 'beginner') }
+  scope :next_track, -> { where(track: 'next') }
+  scope :attending, -> { where(user_status: 'accepted') }
 
   def count_up_votes
     @votes = Vote.all
