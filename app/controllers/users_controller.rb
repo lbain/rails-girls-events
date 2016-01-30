@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :find_user, only: [:edit, :show, :update_user_status]
+  
   def new
     @user = User.new
   end
@@ -9,6 +11,9 @@ class UsersController < ApplicationController
       @user.send_application_thanks
     end
     render :new
+  end
+
+  def edit
   end
 
   def destroy
@@ -26,7 +31,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find params[:id]
     @admin = current_admin
     @admin_page = true
   end
@@ -58,7 +62,6 @@ class UsersController < ApplicationController
 
   # Left separate from update since it's not for admin
   def update_user_status
-    @user = User.find params[:id]
     @user.update(user_status: params[:status])
   end
 
@@ -67,5 +70,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :gender, :track, :under_18, :previous_attendance,
       :programming_experience, :reason, :tshirt_size, :extra_info, :admin_status, :user_status, dietary_requirements: [], comments: [:comment])
   end
-
+  
+  def find_user
+    @user = User.find(params[:id])
+  end
 end
