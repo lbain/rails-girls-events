@@ -44,6 +44,7 @@
       <%end%>
     </div>
 
+    <%= link_to 'Edit', edit_user_path(@user.id), method: :get, class: "btn btn-secondary" %>
     <% if @user.needs_admin_response?  %>
       <%= link_to 'Approve', user_path(@user.id, user: { admin_status: 'approved' } ), method: :patch, class: "btn btn-primary" %>
       <%= link_to 'Reject', user_path(@user.id, user: { admin_status: 'rejected' } ), method: :patch, class: "btn btn-secondary" %>

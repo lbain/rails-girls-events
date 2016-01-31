@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get '/data', to: 'users#data', as: 'data'
   end
 
-  resources :users, only: [:create]
+  resources :users, only: [:create, :edit]
   get '/users/:id/user-status/:status', to: 'users#update_user_status', as: 'user_status'
 
 end
