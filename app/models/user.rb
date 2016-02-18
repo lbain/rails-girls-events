@@ -22,6 +22,7 @@
 
 class User < ActiveRecord::Base
   validates :name, :email, presence: true
+  validates :email, uniqueness: true
 
   # relations
   acts_as_commentable # TODO: move this to the application

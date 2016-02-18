@@ -6,7 +6,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new user_params.merge(admin_status: 'applied')
+    @user = User.find_by_email(user_params[:email])
+    if @user
+      @user.applications.new(user_params[:application])
+    else
+      @user = User.new user_params
+    end
+
     if @user.save
       @user.send_application_thanks
     end
@@ -67,7 +73,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, applications: Application.allowed_params, comments: [:comment])
+    params.require(:user).permit(:name, :email, application: Application.allowed_params, comments: [:comment])
   end
 
   def find_user
