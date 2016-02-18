@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:edit, :show, :update_user_status]
-  
+
   def new
     @user = User.new
   end
@@ -67,10 +67,9 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :gender, :track, :under_18, :previous_attendance,
-      :programming_experience, :reason, :tshirt_size, :extra_info, :admin_status, :user_status, dietary_requirements: [], comments: [:comment])
+    params.require(:user).permit(:name, :email, applications: Application.allowed_params, comments: [:comment])
   end
-  
+
   def find_user
     @user = User.find(params[:id])
   end
