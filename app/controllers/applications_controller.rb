@@ -5,13 +5,11 @@ class ApplicationsController < ApplicationController
   def edit
   end
 
-  # def destroy
-  #   event = Event.find(params[:id])
-  #   if event
-  #     event.destroy
-  #   end
-  #   redirect_to users_path
-  # end
+  def destroy
+    event = @application.event
+    @application.destroy
+    redirect_to event_path(event)
+  end
 
   def show
     @application.comments.build

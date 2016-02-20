@@ -67,9 +67,9 @@
     <!-- Admin response -->
 
     <% if @application.needs_admin_response?  %>
-      <%= link_to 'Approve', user_path(@application.id, user: { admin_status: 'approved' } ), method: :patch, class: "btn btn-primary" %>
-      <%= link_to 'Reject', user_path(@application.id, user: { admin_status: 'rejected' } ), method: :patch, class: "btn btn-secondary" %>
-      <%= link_to 'Defer', user_path(@application.id, user: { admin_status: 'deferred' } ), method: :patch, class: "btn btn-secondary" %>
+      <%= link_to 'Approve', application_path(@application, application: { admin_status: 'approved' } ), method: :patch, class: "btn btn-primary" %>
+      <%= link_to 'Reject', application_path(@application, application: { admin_status: 'rejected' } ), method: :patch, class: "btn btn-secondary" %>
+      <%= link_to 'Defer', application_path(@application, application: { admin_status: 'deferred' } ), method: :patch, class: "btn btn-secondary" %>
     <% end %>
     <div>
       <%= link_to "Delete", { action: "destroy", id: @application.id }, method: :delete, data: { confirm: "Are you sure you want to permanetly delete this application? This action cannot be undone." }, class: "btn btn-secondary" %>
