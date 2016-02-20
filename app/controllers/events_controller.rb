@@ -32,6 +32,8 @@ class EventsController < ApplicationController
   # end
 
   def show
+    @app_needs_response = @event.applications.needs_admin_response.order(:created_at).all
+    @app_has_response = @event.applications.has_admin_response.order(:admin_status, :user_status, :created_at).all
   end
 
   # def update

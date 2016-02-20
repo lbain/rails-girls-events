@@ -1,0 +1,29 @@
+<table class='user-table table'>
+  <tr>
+    <th>Name</th>
+    <th>Applied on</th>
+    <th>Quick review</th>
+    <th>Up votes</th>
+    <th>Down votes</th>
+  </tr>
+  <% applications.each do |app| %>
+    <tr>
+      <td>
+        <!-- TODO: this should link to the application -->
+        <%= link_to app.user.name, user_path(app.user) %>
+      </td>
+      <td>
+        <%= app.created_at.strftime('%B %d, %Y %I:%M %P') %>
+      </td>
+      <td>
+        <%= app.important_attributes.join(', ') %>
+      </td>
+      <td>
+        <%= app.count_up_votes %>
+      </td>
+      <td>
+        <%= app.count_down_votes %>
+      </td>
+    </tr>
+  <% end %>
+</table>
