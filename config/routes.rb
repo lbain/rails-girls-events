@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:create, :edit]
-  get '/users/:id/user-status/:status', to: 'users#update_user_status', as: 'user_status'
+  get '/applications/:id/user-status/:status', to: 'applications#update_user_status', as: 'application_status'
 
 end

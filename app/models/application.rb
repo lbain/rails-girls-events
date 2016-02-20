@@ -74,7 +74,7 @@ class Application < ActiveRecord::Base
   end
 
   def send_application_thanks
-    UserMailer.application_received(self).deliver
+    ApplicationsMailer.application_received(self).deliver
   end
 
   def needs_admin_response?
@@ -84,11 +84,11 @@ class Application < ActiveRecord::Base
   def send_admin_status_email
     case admin_status
     when 'approved'
-      UserMailer.application_success(self).deliver
+      ApplicationsMailer.application_success(self).deliver
     when 'deferred'
-      UserMailer.application_deferred(self).deliver
+      ApplicationsMailer.application_deferred(self).deliver
     when 'rejected'
-      UserMailer.application_rejected(self).deliver
+      ApplicationsMailer.application_rejected(self).deliver
     end
   end
 

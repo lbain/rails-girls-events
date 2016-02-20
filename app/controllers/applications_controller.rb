@@ -1,5 +1,5 @@
 class ApplicationsController < ApplicationController
-  before_action :find_application, only: [:edit, :show, :destroy, :update]
+  before_action :find_application, only: [:edit, :show, :destroy, :update, :update_user_status]
   before_action :assign_admin
 
   def edit
@@ -24,6 +24,11 @@ class ApplicationsController < ApplicationController
 
     @application.save
     redirect_to application_path(@application)
+  end
+
+  # Left separate from update since it's not for admin
+  def update_user_status
+    @application.update(user_status: params[:status])
   end
 
   private
