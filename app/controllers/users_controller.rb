@@ -1,13 +1,22 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:edit, :show, :update_user_status]
-  
+
   def new
     @user = User.new
+    @user.applications.build
   end
 
   def create
-    @user = User.new user_params.merge(admin_status: 'applied')
-    if @user.save
+    @user = User.find_by_email(user_params[:email])
+
+    if @user
+      @user.applications.new application_params
+    else
+      @user = User.new user_params
+    end
+
+    if @user.valid? && @user.applications.last.valid?
+      @user.save
       @user.send_application_thanks
     end
     render :new
@@ -67,10 +76,13 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :gender, :track, :under_18, :previous_attendance,
-      :programming_experience, :reason, :tshirt_size, :extra_info, :admin_status, :user_status, dietary_requirements: [], comments: [:comment])
+    params.require(:user).permit(:name, :email, applications_attributes: Application.allowed_params, comments: [:comment])
   end
-  
+
+  def application_params
+    user_params[:applications_attributes]['0']
+  end
+
   def find_user
     @user = User.find(params[:id])
   end

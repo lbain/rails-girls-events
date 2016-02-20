@@ -13,17 +13,18 @@
           <%= f.input :email, class: 'steps-form__step__field' %>
         </div>
       </div>
+  <%= f.simple_fields_for :applications do |a| %>
       <div class="steps-form__step__fields">
         <div class="steps-form__step__field-group">
           <div class="steps-form__step__field">
-            <%= f.input :under_18, label: 'Are you under 18?', as: :radio_buttons, class: 'steps-form__step__field' %>
+            <%= a.input :over_18, label: 'Are you over 18?', as: :radio_buttons, class: 'steps-form__step__field' %>
           </div>
         </div>
       </div>
       <div class="steps-form__step__fields">
         <div class="steps-form__step__field-group">
           <div class="steps-form__step__field">
-            <%= f.input :gender,
+            <%= a.input :gender,
                 label: 'How do you identify?',
                 collection: ['Female', 'Male', 'Other'],
                 as: :radio_buttons,
@@ -41,7 +42,7 @@
 
       <div class="steps-form__step__field-group">
         <div class="steps-form__step__field">
-          <%= f.input :previous_attendance,
+          <%= a.input :previous_attendance,
               label: "Have you previously attended a Rails Girls workshop?",
               collection:
               [['No, this would be my first time', 'None'],
@@ -57,7 +58,7 @@
 
       <div class="steps-form__step__field-group">
         <div class="steps-form__step__field">
-          <%= f.input :track,
+          <%= a.input :track,
               label: "Which track are you interested in?",
               collection:
               [['Rails Girls Beginner', 'beginner'],
@@ -73,7 +74,7 @@
       <h1>Tell us a bit more about yourself</h1>
       <div class="steps-form__step__field-group">
         <div class="steps-form__step__field">
-          <%= f.input :programming_experience,
+          <%= a.input :programming_experience,
               label: "How would you rate your programming abilities?",
               collection:
               [ "I program regularly, but not in Ruby.",
@@ -85,7 +86,7 @@
       </div>
       <div class="steps-form__step__fields">
         <div class="steps-form__step__field-group">
-          <%= f.input :reason, label: "We anticipate more applicants than we have spaces available. Please briefly let us know who you are and why you wish to attend Rails Girls. We'll do our best to select those who we feel will most benefit.", class: 'steps-form__step__field' %>
+          <%= a.input :reason, label: "We anticipate more applicants than we have spaces available. Please briefly let us know who you are and why you wish to attend Rails Girls. We'll do our best to select those who we feel will most benefit.", class: 'steps-form__step__field' %>
         </div>
       </div>
   </fieldset>
@@ -96,7 +97,7 @@
     <div class="steps-form__step__fields">
       <div class="steps-form__step__field-group">
         <div class="steps-form__step__field">
-          <%= f.input :dietary_requirements,
+          <%= a.input :dietary_requirements,
               label: 'Dietary requirements (if any)',
               collection: ['Vegetarian', 'Vegan', 'Gluten free', 'Dairy free'],
               as: :check_boxes,
@@ -106,7 +107,7 @@
     </div>
     <div class="steps-form__step__field-group">
       <div class="steps-form__step__field">
-        <%= f.input :tshirt_size,
+        <%= a.input :tshirt_size,
             label: 'T-shirt size',
             collection:
             [['X-Small', 'xs'],
@@ -119,7 +120,7 @@
     </div>
     <div class="steps-form__step__fields">
       <div class="steps-form__step__field-group">
-          <%= f.input :extra_info, label: "Anything else we need to know?", class: 'steps-form__step__field' %>
+          <%= a.input :extra_info, label: "Anything else we need to know?", class: 'steps-form__step__field' %>
       </div>
     </div>
     <div class="steps-form__step-next-btn">
@@ -127,4 +128,6 @@
       </div>
     </div>
   </fieldset>
+  <%= a.hidden_field :admin_status, value: "applied" %>
+  <% end %>
 <% end %>

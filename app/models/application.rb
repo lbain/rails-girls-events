@@ -1,37 +1,35 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: applications
 #
 #  id                     :integer          not null, primary key
-#  name                   :string
-#  email                  :string
+#  user_id                :integer
 #  track                  :string
+#  over_18                :boolean
 #  previous_attendance    :string
 #  programming_experience :text
 #  reason                 :text
 #  tshirt_size            :string
 #  admin_status           :string
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
-#  under_18               :boolean
 #  user_status            :string
 #  gender                 :string
 #  dietary_requirements   :json
 #  extra_info             :text
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
 #
 
-class User < ActiveRecord::Base
-  validates :name, :email, presence: true
-  validates :email, uniqueness: true
+class Application < ActiveRecord::Base
+  validates :track, :previous_attendance, :programming_experience,
+            :reason, :tshirt_size, :gender, presence: true
+  validates_inclusion_of :over_18, in: [true, false]
+
 
   # relations
-  acts_as_commentable # TODO: move this to the application
-  has_many :votes # TODO: move this to the application
-  has_many :applications
+  belongs_to :user
+  acts_as_commentable
+  has_many :votes
 
-  accepts_nested_attributes_for :applications
-
-  # TODO: delete scopes
   # scopes
   scope :needs_admin_response, -> { where('admin_status=? OR admin_status=?', 'applied', 'deferred') }
   scope :has_admin_response, -> { where('admin_status!=? AND admin_status!=?', 'applied', 'deferred') }
@@ -39,24 +37,11 @@ class User < ActiveRecord::Base
   scope :next_track, -> { where(track: 'next') }
   scope :attending, -> { where(user_status: 'accepted') }
 
-  def to_application_hash
-    {
-      track: track,
-      previous_attendance: previous_attendance,
-      programming_experience: programming_experience,
-      reason: reason,
-      tshirt_size: tshirt_size,
-      admin_status: admin_status,
-      user_id: id,
-      over_18: !under_18,
-      user_status: user_status,
-      gender: gender,
-      dietary_requirements: dietary_requirements,
-      extra_info: extra_info
-    }
+  def self.allowed_params
+    [ :track, :over_18, :previous_attendance, :programming_experience, :reason,
+      :tshirt_size, :admin_status, :user_status, :gender, {dietary_requirements: []},
+      :extra_info]
   end
-
-  # TODO: delete everything else...
 
   def count_up_votes
     @votes = Vote.all
@@ -69,10 +54,10 @@ class User < ActiveRecord::Base
   end
 
   def age
-    if under_18
-      'Under 18'
-    else
+    if over_18
       'Over 18'
+    else
+      'Under 18'
     end
   end
 
@@ -80,7 +65,7 @@ class User < ActiveRecord::Base
     attributes = []
     attributes << track if track == 'next'
     attributes << gender if gender == 'Male'
-    attributes << age if under_18
+    attributes << age unless over_18
     attributes
   end
 
