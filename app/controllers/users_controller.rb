@@ -15,6 +15,11 @@ class UsersController < ApplicationController
       @user = User.new user_params
     end
 
+    # TODO: This should be a (hidden?) field element based on when the applications open
+    # This is much easier for now, but will only support one event at a time
+    # and the hard coding would need to be updated for the next event
+    @user.applications.last.event = Event.where("title like ?", "%April 1-2, 2016%").first
+
     if @user.valid? && @user.applications.last.valid?
       @user.save
       @user.send_application_thanks

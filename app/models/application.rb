@@ -17,6 +17,7 @@
 #  extra_info             :text
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  event_id               :integer
 #
 
 class Application < ActiveRecord::Base
@@ -27,6 +28,7 @@ class Application < ActiveRecord::Base
 
   # relations
   belongs_to :user
+  belongs_to :event
   acts_as_commentable
   has_many :votes
 

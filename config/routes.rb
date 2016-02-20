@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :users, except: [:create, :edit] do
       resources :votes, only: [:create]
     end
-    get '/events', to: 'events#index', as: 'events'
+    resources :events
     get '/data', to: 'users#data', as: 'data'
   end
 
