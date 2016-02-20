@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   devise_for :admins
 
   authenticate :admin do
-    resources :users, except: [:create, :edit] do
+    resources :users, except: [:create, :edit]
+    resources :events
+    resources :applications do
       resources :votes, only: [:create]
     end
-    resources :events
-    resources :applications
     get '/data', to: 'users#data', as: 'data'
   end
 

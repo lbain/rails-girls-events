@@ -26,7 +26,6 @@ class User < ActiveRecord::Base
 
   # relations
   acts_as_commentable # TODO: move this to the application
-  has_many :votes # TODO: move this to the application
   has_many :applications
 
   accepts_nested_attributes_for :applications
@@ -57,16 +56,6 @@ class User < ActiveRecord::Base
   end
 
   # TODO: delete everything else...
-
-  def count_up_votes
-    @votes = Vote.all
-    @votes.select{|vote| vote.user_id == self.id && vote.vote_type == 'up'}.count
-  end
-
-  def count_down_votes
-    @votes = Vote.all
-    @votes.select{|vote| vote.user_id == self.id && vote.vote_type == 'down'}.count
-  end
 
   def age
     if under_18
