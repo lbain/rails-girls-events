@@ -29,6 +29,8 @@ class User < ActiveRecord::Base
   has_many :votes # TODO: move this to the application
   has_many :applications
 
+  accepts_nested_attributes_for :applications
+
   # TODO: delete scopes
   # scopes
   scope :needs_admin_response, -> { where('admin_status=? OR admin_status=?', 'applied', 'deferred') }

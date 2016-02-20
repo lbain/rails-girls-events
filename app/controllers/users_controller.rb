@@ -3,17 +3,20 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.applications.build
   end
 
   def create
     @user = User.find_by_email(user_params[:email])
+
     if @user
-      @user.applications.new(user_params[:application])
+      @user.applications.new application_params
     else
       @user = User.new user_params
     end
 
-    if @user.save
+    if @user.valid? && @user.applications.last.valid?
+      @user.save
       @user.send_application_thanks
     end
     render :new
@@ -73,7 +76,11 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, application: Application.allowed_params, comments: [:comment])
+    params.require(:user).permit(:name, :email, applications_attributes: Application.allowed_params, comments: [:comment])
+  end
+
+  def application_params
+    user_params[:applications_attributes]['0']
   end
 
   def find_user

@@ -13,7 +13,7 @@
           <%= f.input :email, class: 'steps-form__step__field' %>
         </div>
       </div>
-<%= f.simple_fields_for :application do |a| %>
+  <%= f.simple_fields_for :applications do |a| %>
       <div class="steps-form__step__fields">
         <div class="steps-form__step__field-group">
           <div class="steps-form__step__field">
@@ -129,5 +129,5 @@
     </div>
   </fieldset>
   <%= a.hidden_field :admin_status, value: "applied" %>
-<% end %>
+  <% end %>
 <% end %>
