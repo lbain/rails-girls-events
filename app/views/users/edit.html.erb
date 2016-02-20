@@ -1,4 +1,9 @@
 <div class="container_12 container">
   <h1>Update applicant details</h1>
-  <%= render "form" %>
+  <%= simple_form_for @user, class: 'steps-form' do |f| %>
+    <%= render partial: "form", locals: { f: f } %>
+    <div class="steps-form__step-next-btn">
+      <%= f.button :submit, class: "btn btn-primary", value: 'save' %>
+    </div>
+  <% end %>
 </div>

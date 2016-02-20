@@ -7,7 +7,7 @@
 #  comment          :text
 #  commentable_id   :integer
 #  commentable_type :string
-#  user_id          :integer
+#  admin_id         :integer
 #  role             :string           default("comments")
 #  created_at       :datetime
 #  updated_at       :datetime
@@ -27,6 +27,10 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :admin
+
+  def self.allowed_params
+    [:admin_id, :comment]
+  end
 
   def admin_email
     if admin

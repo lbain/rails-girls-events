@@ -8,10 +8,14 @@
     </h1>
   <% end %>
 
-  <div class="user-info-divider">
-      <h4>Name:</h4>
-      <p><%= @application.user.name %></p>
+  <% user_displayed_attributes.each do |attribute, title| %>
+    <div class="user-info-divider">
+      <h4><%= title %>:</h4>
+      <p><%=@application.user.send(attribute)%></p>
     </div>
+  <% end %>
+
+  <%= link_to 'Edit user', edit_user_path(@application.user), method: :get, class: "btn btn-secondary" %>
 
   <% application_displayed_attributes.each do |attribute, title| %>
     <div class="user-info-divider">
@@ -19,6 +23,8 @@
       <p><%=@application.send(attribute)%></p>
     </div>
   <% end %>
+
+  <%= link_to 'Edit application', edit_application_path(@application), method: :get, class: "btn btn-secondary" %>
 
   <!-- Votes -->
 
@@ -39,23 +45,24 @@
 
     <% if @application.comments %>
       <% @application.comments.each do |comment| %>
-        <div class="comment">
-          <p class="text"><%= comment.comment %></p>
-          <p class="date">Posted by <%= comment.admin_email %> on <%=comment.created_at.strftime('%B %d, %Y %I:%M %P')%></p>
-        </div>
+        <% if comment.comment %>
+          <div class="comment">
+            <p class="text"><%= comment.comment %></p>
+            <p class="date">Posted by <%= comment.admin_email %> on <%=comment.created_at.strftime('%B %d, %Y %I:%M %P')%></p>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
 
     <div class="comment">
       <%= simple_form_for @application do |f| %>
         <%= f.simple_fields_for :comments do |c| %>
-          <%= c.input :comment, :label => "Leave a comment", class: 'admin-comment', :as => :text%>
+          <%= c.hidden_field :admin_id, value: @admin.id %>
+          <%= c.input :comment, label: "Leave a comment", class: 'admin-comment', as: :text%>
           <%= c.button :submit, 'Submit comment', class: 'btn-primary'%>
         <%end%>
       <%end%>
     </div>
-
-    <%= link_to 'Edit', edit_user_path(@application.id), method: :get, class: "btn btn-secondary" %>
 
     <!-- Admin response -->
 

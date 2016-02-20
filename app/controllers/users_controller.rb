@@ -66,7 +66,7 @@ class UsersController < ApplicationController
     end
 
     user.save
-    redirect_to user_path(user)
+    redirect_to events_path
   end
 
   def data
