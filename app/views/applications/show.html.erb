@@ -1,0 +1,72 @@
+<div class="container_12 user-show-container container">
+
+  <!-- Application details -->
+
+  <% unless @application.needs_admin_response?  %>
+    <h1>
+      <%= @application.user.name %> was <%= @application.admin_status %>
+    </h1>
+  <% end %>
+
+  <div class="user-info-divider">
+      <h4>Name:</h4>
+      <p><%= @application.user.name %></p>
+    </div>
+
+  <% application_displayed_attributes.each do |attribute, title| %>
+    <div class="user-info-divider">
+      <h4><%= title %>:</h4>
+      <p><%=@application.send(attribute)%></p>
+    </div>
+  <% end %>
+
+  <!-- Votes -->
+
+  <div class="user-info-divider">
+    <h4>Admin votes</h4>
+    <%= link_to user_votes_path(@application.id, vote_type: 'up'), method: :post, class: "up-vote-btn" do %>
+      <i class="fa fa-thumbs-o-up"></i><span class='up-count'><%=@application.count_up_votes%></span>
+    <%end%>
+    <%= link_to user_votes_path(@application.id, vote_type: 'down'), method: :post, class: "down-vote-btn" do %>
+      <i class="fa fa-thumbs-o-down"></i><span class='up-count'><%=@application.count_down_votes%></span>
+    <%end%>
+  </div>
+
+  <!-- Comments -->
+
+  <div class="user-info-divider">
+    <h4>Admin comments</h4>
+
+    <% if @application.comments %>
+      <% @application.comments.each do |comment| %>
+        <div class="comment">
+          <p class="text"><%= comment.comment %></p>
+          <p class="date">Posted by <%= comment.admin_email %> on <%=comment.created_at.strftime('%B %d, %Y %I:%M %P')%></p>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="comment">
+      <%= simple_form_for @application do |f| %>
+        <%= f.simple_fields_for :comments do |c| %>
+          <%= c.input :comment, :label => "Leave a comment", class: 'admin-comment', :as => :text%>
+          <%= c.button :submit, 'Submit comment', class: 'btn-primary'%>
+        <%end%>
+      <%end%>
+    </div>
+
+    <%= link_to 'Edit', edit_user_path(@application.id), method: :get, class: "btn btn-secondary" %>
+
+    <!-- Admin response -->
+
+    <% if @application.needs_admin_response?  %>
+      <%= link_to 'Approve', user_path(@application.id, user: { admin_status: 'approved' } ), method: :patch, class: "btn btn-primary" %>
+      <%= link_to 'Reject', user_path(@application.id, user: { admin_status: 'rejected' } ), method: :patch, class: "btn btn-secondary" %>
+      <%= link_to 'Defer', user_path(@application.id, user: { admin_status: 'deferred' } ), method: :patch, class: "btn btn-secondary" %>
+    <% end %>
+    <div>
+      <%= link_to "Delete", { action: "destroy", id: @application.id }, method: :delete, data: { confirm: "Are you sure you want to permanetly delete this application? This action cannot be undone." }, class: "btn btn-secondary" %>
+    </div>
+  </div>
+
+</div>

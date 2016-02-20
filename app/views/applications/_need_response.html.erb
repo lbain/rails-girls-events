@@ -9,8 +9,7 @@
   <% applications.each do |app| %>
     <tr>
       <td>
-        <!-- TODO: this should link to the application -->
-        <%= link_to app.user.name, user_path(app.user) %>
+        <%= link_to app.user.name, application_path(app) %>
       </td>
       <td>
         <%= app.created_at.strftime('%B %d, %Y %I:%M %P') %>

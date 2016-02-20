@@ -11,8 +11,7 @@
         <i class="fa <%= app.admin_status_icon %>"></i>
       </td>
       <td>
-        <!-- TODO: this should link to the application -->
-        <%= link_to app.user.name, user_path(app.user) %>
+        <%= link_to app.user.name, application_path(app) %>
       </td>
       <td class="icon-cell">
         <i class="fa <%= app.user_status_icon %>"></i>
