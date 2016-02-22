@@ -6,22 +6,22 @@
     <th>Up votes</th>
     <th>Down votes</th>
   </tr>
-  <% users.each do |user| %>
+  <% applications.each do |app| %>
     <tr>
       <td>
-        <%= link_to user.name, user_path(user) %>
+        <%= link_to app.user.name, application_path(app) %>
       </td>
       <td>
-        <%= user.created_at.strftime('%B %d, %Y %I:%M %P') %>
+        <%= app.created_at.strftime('%B %d, %Y %I:%M %P') %>
       </td>
       <td>
-        <%= user.important_attributes.join(', ') %>
+        <%= app.important_attributes.join(', ') %>
       </td>
       <td>
-        <%= user.count_up_votes %>
+        <%= app.count_up_votes %>
       </td>
       <td>
-        <%= user.count_down_votes %>
+        <%= app.count_down_votes %>
       </td>
     </tr>
   <% end %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:edit, :show, :update_user_status]
+  before_action :find_user, only: [:edit, :show, :update, :update_user_status]
 
   def new
     @user = User.new
@@ -14,10 +14,16 @@ class UsersController < ApplicationController
     else
       @user = User.new user_params
     end
+    application = @user.applications.last
 
-    if @user.valid? && @user.applications.last.valid?
+    # TODO: This should be a (hidden?) field element based on when the applications open
+    # This is much easier for now, but will only support one event at a time
+    # and the hard coding would need to be updated for the next event
+    application.event = Event.where("title like ?", "%April 1-2, 2016%").first
+
+    if @user.valid? && application.valid?
       @user.save
-      @user.send_application_thanks
+      application.send_application_thanks
     end
     render :new
   end
@@ -33,35 +39,17 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-  def index
-    @users_applied = User.needs_admin_response.order(:created_at).all
-    @users_responded = User.has_admin_response.order(:admin_status, :user_status, :created_at).all
-    @admin_page = true
-  end
-
   def show
     @admin = current_admin
     @admin_page = true
   end
 
   def update
-    user = User.find params[:id]
-    temp_params = user_params
-    if temp_params[:comments].present?
-      comment = temp_params[:comments]
-      comment = comment.merge(admin_id: current_admin.id) if current_admin
-      user.comments.create(comment)
-      temp_params.delete(:comments)
+    if @user.update_attributes(user_params)
+      redirect_to events_path
+    else
+      render :edit
     end
-
-    user.assign_attributes(temp_params)
-
-    if user.admin_status_changed?
-      user.send_admin_status_email
-    end
-
-    user.save
-    redirect_to user_path(user)
   end
 
   def data

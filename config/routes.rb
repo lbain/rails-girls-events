@@ -4,14 +4,15 @@ Rails.application.routes.draw do
   devise_for :admins
 
   authenticate :admin do
-    resources :users, except: [:create, :edit] do
+    resources :users, except: [:create, :edit]
+    resources :events
+    resources :applications do
       resources :votes, only: [:create]
     end
-    get '/events', to: 'events#index', as: 'events'
     get '/data', to: 'users#data', as: 'data'
   end
 
   resources :users, only: [:create, :edit]
-  get '/users/:id/user-status/:status', to: 'users#update_user_status', as: 'user_status'
+  get '/applications/:id/user-status/:status', to: 'applications#update_user_status', as: 'application_status'
 
 end

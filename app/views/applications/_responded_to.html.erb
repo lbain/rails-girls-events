@@ -5,19 +5,19 @@
     <th class="icon-cell">Their response</th>
     <th>Quick review</th>
   </tr>
-  <% users.each do |user| %>
+  <% applications.each do |app| %>
     <tr>
       <td class="icon-cell">
-        <i class="fa <%= user.admin_status_icon %>"></i>
+        <i class="fa <%= app.admin_status_icon %>"></i>
       </td>
       <td>
-        <%= link_to user.name, user_path(user) %>
+        <%= link_to app.user.name, application_path(app) %>
       </td>
       <td class="icon-cell">
-        <i class="fa <%= user.user_status_icon %>"></i>
+        <i class="fa <%= app.user_status_icon %>"></i>
       </td>
       <td>
-        <%= user.important_attributes.join(', ') %>
+        <%= app.important_attributes.join(', ') %>
       </td>
     </tr>
   <% end %>

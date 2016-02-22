@@ -1,0 +1,7 @@
+<div class="container_12 container">
+  <h1>Needs admin response</h1>
+  <%= render partial: "applications/need_response", locals: {applications: @app_needs_response} %>
+
+  <h1>Others</h1>
+  <%= render partial: "applications/responded_to", locals: {applications: @app_has_response} %>
+</div>

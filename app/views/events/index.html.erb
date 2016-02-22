@@ -5,16 +5,16 @@
     </tr>
     <tr>
       <th>Title</th>
-      <th>Date</th>
       <th>Applicants</th>
       <th>Data</th>
     </tr>
-    <tr>
-      <td><a href="/users">Rails Girls August 2015</a></td>
-      <td>21-22 August, 2015</td>
-      <td><%=link_to 'Applicants', users_path %></td>
-      <td><%=link_to 'Data', data_path %></td>
-    </tr>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= link_to event.title, event_path(event) %></td>
+        <!-- <td><%=link_to 'Applicants', users_path %></td>-->
+        <!-- <td><%=link_to 'Data', data_path %></td>-->
+      </tr>
+    <% end %>
   </table>
 </div>
 

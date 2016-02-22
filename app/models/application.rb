@@ -17,6 +17,7 @@
 #  extra_info             :text
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  event_id               :integer
 #
 
 class Application < ActiveRecord::Base
@@ -27,8 +28,11 @@ class Application < ActiveRecord::Base
 
   # relations
   belongs_to :user
-  acts_as_commentable
+  belongs_to :event
   has_many :votes
+
+  acts_as_commentable
+  accepts_nested_attributes_for :comments
 
   # scopes
   scope :needs_admin_response, -> { where('admin_status=? OR admin_status=?', 'applied', 'deferred') }
@@ -40,17 +44,17 @@ class Application < ActiveRecord::Base
   def self.allowed_params
     [ :track, :over_18, :previous_attendance, :programming_experience, :reason,
       :tshirt_size, :admin_status, :user_status, :gender, {dietary_requirements: []},
-      :extra_info]
+      :extra_info, { comments_attributes: Comment.allowed_params }]
   end
 
   def count_up_votes
     @votes = Vote.all
-    @votes.select{|vote| vote.user_id == self.id && vote.vote_type == 'up'}.count
+    @votes.select{|vote| vote.application_id == self.id && vote.vote_type == 'up'}.count
   end
 
   def count_down_votes
     @votes = Vote.all
-    @votes.select{|vote| vote.user_id == self.id && vote.vote_type == 'down'}.count
+    @votes.select{|vote| vote.application_id == self.id && vote.vote_type == 'down'}.count
   end
 
   def age
@@ -70,7 +74,7 @@ class Application < ActiveRecord::Base
   end
 
   def send_application_thanks
-    UserMailer.application_received(self).deliver
+    ApplicationsMailer.application_received(self).deliver
   end
 
   def needs_admin_response?
@@ -80,11 +84,11 @@ class Application < ActiveRecord::Base
   def send_admin_status_email
     case admin_status
     when 'approved'
-      UserMailer.application_success(self).deliver
+      ApplicationsMailer.application_success(self).deliver
     when 'deferred'
-      UserMailer.application_deferred(self).deliver
+      ApplicationsMailer.application_deferred(self).deliver
     when 'rejected'
-      UserMailer.application_rejected(self).deliver
+      ApplicationsMailer.application_rejected(self).deliver
     end
   end
 

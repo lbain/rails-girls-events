@@ -1,0 +1,13 @@
+<%= simple_form_for @user, class: 'steps-form' do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+  <%= f.simple_fields_for :applications do |a| %>
+    <%= render partial: 'applications/form', locals: { a: a } %>
+    <%= a.hidden_field :admin_status, value: 'applied' %>
+  <% end %>
+  <div class="steps-form__step-next-btn">
+    <%= f.button :submit, class: "btn btn-primary", value: 'Apply' %>
+  </div>
+  </div>
+  </div>
+  </fieldset>
+<% end %>
