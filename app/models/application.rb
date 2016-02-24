@@ -113,6 +113,10 @@ class Application < ActiveRecord::Base
       'fa-times'
     end
   end
+  
+  def previous_applications?
+    user.applications.count > 1
+  end
 
 #FOR the data page
   def self.applied_count
