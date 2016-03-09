@@ -45,18 +45,16 @@
 
     <% if @application.comments %>
       <% @application.comments.each do |comment| %>
-        <% if comment.comment %>
-          <div class="comment">
-            <p class="text"><%= comment.comment %></p>
-            <p class="date">Posted by <%= comment.admin_email %> on <%=comment.created_at.strftime('%B %d, %Y %I:%M %P')%></p>
-          </div>
-        <% end %>
+        <div class="comment">
+          <p class="text"><%= comment.comment %></p>
+          <p class="date">Posted by <%= comment.admin_email %> on <%=comment.created_at.strftime('%B %d, %Y %I:%M %P')%></p>
+        </div>
       <% end %>
     <% end %>
 
     <div class="comment">
       <%= simple_form_for @application do |f| %>
-        <%= f.simple_fields_for :comments do |c| %>
+        <%= f.fields_for :comments, @application.comments.build do |c| %>
           <%= c.hidden_field :admin_id, value: @admin.id %>
           <%= c.input :comment, label: "Leave a comment", class: 'admin-comment', as: :text%>
           <%= c.button :submit, 'Submit comment', class: 'btn-primary'%>

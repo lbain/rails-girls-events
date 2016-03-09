@@ -12,7 +12,6 @@ class ApplicationsController < ApplicationController
   end
 
   def show
-    @application.comments.build
   end
 
   def update
