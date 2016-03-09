@@ -68,6 +68,9 @@
       <%= link_to 'Approve', application_path(@application, application: { admin_status: 'approved' } ), method: :patch, class: "btn btn-primary" %>
       <%= link_to 'Reject', application_path(@application, application: { admin_status: 'rejected' } ), method: :patch, class: "btn btn-secondary" %>
       <%= link_to 'Defer', application_path(@application, application: { admin_status: 'deferred' } ), method: :patch, class: "btn btn-secondary" %>
+    <% else %>
+      <%= link_to "#{@application.user.name} accepts", application_status_url(@application, 'accepted'),  class: "btn btn-secondary", data: { confirm: "Are you sure you want to RSVP on behalf of this user?" } %>
+      <%= link_to "#{@application.user.name} declines", application_status_url(@application, 'declined'),  class: "btn btn-secondary", data: { confirm: "Are you sure you want to RSVP on behalf of this user?" } %>
     <% end %>
     <div>
       <%= link_to "Delete", { action: "destroy", id: @application.id }, method: :delete, data: { confirm: "Are you sure you want to permanetly delete this application? This action cannot be undone." }, class: "btn btn-secondary" %>
