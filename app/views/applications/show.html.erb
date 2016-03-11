@@ -59,18 +59,16 @@
 
     <% if @application.comments %>
       <% @application.comments.each do |comment| %>
-        <% if comment.comment %>
-          <div class="comment">
-            <p class="text"><%= comment.comment %></p>
-            <p class="date">Posted by <%= comment.admin_email %> on <%=comment.created_at.strftime('%B %d, %Y %I:%M %P')%></p>
-          </div>
-        <% end %>
+        <div class="comment">
+          <p class="text"><%= comment.comment %></p>
+          <p class="date">Posted by <%= comment.admin_email %> on <%=comment.created_at.strftime('%B %d, %Y %I:%M %P')%></p>
+        </div>
       <% end %>
     <% end %>
 
     <div class="comment">
       <%= simple_form_for @application do |f| %>
-        <%= f.simple_fields_for :comments do |c| %>
+        <%= f.fields_for :comments, @application.comments.build do |c| %>
           <%= c.hidden_field :admin_id, value: @admin.id %>
           <%= c.input :comment, label: "Leave a comment", class: 'admin-comment', as: :text%>
           <%= c.button :submit, 'Submit comment', class: 'btn-primary'%>
@@ -84,6 +82,9 @@
       <%= link_to 'Approve', application_path(@application, application: { admin_status: 'approved' } ), method: :patch, class: "btn btn-primary" %>
       <%= link_to 'Reject', application_path(@application, application: { admin_status: 'rejected' } ), method: :patch, class: "btn btn-secondary" %>
       <%= link_to 'Defer', application_path(@application, application: { admin_status: 'deferred' } ), method: :patch, class: "btn btn-secondary" %>
+    <% else %>
+      <%= link_to "#{@application.user.name} accepts", application_status_url(@application, 'accepted'),  class: "btn btn-secondary", data: { confirm: "Are you sure you want to RSVP on behalf of this user?" } %>
+      <%= link_to "#{@application.user.name} declines", application_status_url(@application, 'declined'),  class: "btn btn-secondary", data: { confirm: "Are you sure you want to RSVP on behalf of this user?" } %>
     <% end %>
     <div>
       <%= link_to "Delete", { action: "destroy", id: @application.id }, method: :delete, data: { confirm: "Are you sure you want to permanetly delete this application? This action cannot be undone." }, class: "btn btn-secondary" %>
