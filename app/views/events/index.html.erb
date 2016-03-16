@@ -10,9 +10,9 @@
     </tr>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to event.title, event_path(event) %></td>
-        <!-- <td><%=link_to 'Applicants', users_path %></td>-->
-        <!-- <td><%=link_to 'Data', data_path %></td>-->
+        <td><%= event.title %></td>
+        <td><%= link_to 'Applicants', event_path(event) %></td>
+        <td><%=link_to 'Data', event_data_path(event) %></td>
       </tr>
     <% end %>
   </table>

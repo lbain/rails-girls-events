@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :find_event, only: [:edit, :show]
+  before_action :find_event, only: [:edit, :show, :data]
 
   def index
     @events = Event.all
@@ -36,6 +36,9 @@ class EventsController < ApplicationController
     @app_has_response = @event.applications.has_admin_response.order(:admin_status, :user_status, :created_at).all
   end
 
+  def data
+  end
+
   # def update
   # end
 
@@ -45,6 +48,6 @@ class EventsController < ApplicationController
   end
 
   def find_event
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:id] || params[:event_id])
   end
 end
