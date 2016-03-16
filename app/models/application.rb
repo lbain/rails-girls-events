@@ -113,67 +113,8 @@ class Application < ActiveRecord::Base
       'fa-times'
     end
   end
-  
+
   def previous_applications?
     user.applications.count > 1
-  end
-
-#FOR the data page
-  def self.applied_count
-    User.where(:admin_status => 'applied').count
-  end
-
-  def self.approved_count
-    User.where(:admin_status => 'approved').count
-  end
-
-  def self.deferred_count
-    User.where(:admin_status => 'deferred').count
-  end
-
-  def self.rejected_count
-    User.where(:admin_status => 'rejected').count
-  end
-
-  def self.accepted_count
-    User.where(:user_status => 'accepted').count
-  end
-
-  def self.declined_count
-    User.where(:user_status => 'declined').count
-  end
-
-  def self.beginner_count
-    User.where(:track => 'beginner', :user_status => 'accepted').count
-  end
-
-  def self.next_count
-    User.where(:track => 'next', :user_status => 'accepted').count
-  end
-
-  def self.has_dietary_requirement
-    users = User.where(:user_status => 'accepted')
-    users_without_nil = users.select{|u| !u[:dietary_requirements].nil?}
-    users_without_nil.select {|u|u[:dietary_requirements].to_a.exclude? 'none'}
-  end
-
-  def self.xs_count
-    User.where(:tshirt_size => 'xs').count
-  end
-
-  def self.s_count
-    User.where(:tshirt_size => 's').count
-  end
-
-  def self.m_count
-    User.where(:tshirt_size => 'm').count
-  end
-
-  def self.l_count
-    User.where(:tshirt_size => 'l').count
-  end
-
-  def self.xl_count
-    User.where(:tshirt_size => 'xl').count
   end
 end

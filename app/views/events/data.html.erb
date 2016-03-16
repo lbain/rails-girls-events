@@ -1,0 +1,132 @@
+<div class="container_12 container">
+  <h1>Data</h1>
+
+  <h2>Admin status</h2>
+  <table class='user-table table'>
+    <tr>
+      <th>Status</th>
+      <th class="icon-cell">Count</th>
+    </tr>
+    <tr>
+      <td>Applied (no admin response)</td>
+      <td><%= @event.applied_count %></td>
+    </tr>
+    <tr>
+      <td>Approved</td>
+      <td><%= @event.approved_count %></td>
+    </tr>
+    <tr>
+      <td>Deferred</td>
+      <td><%= @event.deferred_count %></td>
+    </tr>
+    <tr>
+      <td>Rejected</td>
+      <td><%= @event.rejected_count %></td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td><%= @event.total_application_count %></td>
+    </tr>
+  </table>
+
+  <h2>User status</h2>
+  <table class='user-table table'>
+    <tr>
+      <th>Status</th>
+      <th class="icon-cell">Count</th>
+    </tr>
+    <tr>
+      <td>Accepted</td>
+      <td><%= @event.accepted_count %></td>
+    </tr>
+    <tr>
+      <td>Declined</td>
+      <td><%= @event.declined_count %></td>
+    </tr>
+  </table>
+
+  <h2>Track preferences (accepted attendees only)</h2>
+  <table class='user-table table'>
+    <tr>
+      <th>Track</th>
+      <th class="icon-cell">Count</th>
+    </tr>
+    <tr>
+      <td>Rails Girls Beginner</td>
+      <td><%= @event.beginner_count %></td>
+    </tr>
+    <tr>
+      <td>Rail Girls Next</td>
+      <td><%= @event.next_count %></td>
+    </tr>
+  </table>
+
+  <h2>Tshirt sizes (accepted attendees only)</h2>
+  <table class='user-table table'>
+    <tr>
+      <th>Size</th>
+      <th class="icon-cell">Count</th>
+    </tr>
+    <tr>
+      <td>XS</td>
+      <td><%= @event.xs_count %></td>
+    </tr>
+    <tr>
+      <td>S</td>
+      <td><%= @event.s_count %></td>
+    </tr>
+    <tr>
+      <td>M</td>
+      <td><%= @event.m_count %></td>
+    </tr>
+    <tr>
+      <td>L</td>
+      <td><%= @event.l_count %></td>
+    </tr>
+    <tr>
+      <td>XL</td>
+      <td><%= @event.xl_count %></td>
+    </tr>
+  </table>
+
+  <h2>Dietary requirememnts (accepted attendees only)</h2>
+  <table class='user-table table'>
+    <tr>
+      <th>Applicant</th>
+      <th class="icon-cell">Dietry requirements</th>
+    </tr>
+    <%  @event.has_dietary_requirement.each do |application| %>
+    <tr>
+      <td><%= application.user.name %></td>
+      <td>
+        <%= application.dietary_requirements.join(", ") %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+
+  <h2>Email lists (accepted attendees only)</h2>
+  <h4>Rails Girls</h4>
+  <table class='user-table table'>
+    <tr>
+      <th>Email</th>
+    </tr>
+    <% @event.applications.beginner_track.attending.each do |application| %>
+    <tr>
+      <td><%= application.user.email %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <h4>Rails Girls Next</h4>
+  <table class='user-table table'>
+    <tr>
+      <th>Email</th>
+    </tr>
+    <% @event.applications.next_track.attending.each do |application| %>
+    <tr>
+      <td><%= application.user.email %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
