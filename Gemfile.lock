@@ -93,7 +93,6 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
-    excon (0.45.4)
     execjs (2.5.2)
     ffi (1.9.10)
     figaro (1.1.1)
@@ -117,13 +116,6 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mandrill-api (1.0.53)
-      excon (>= 0.16.0, < 1.0)
-      json (>= 1.7.7, < 2.0)
-    mandrill_mailer (1.0.3)
-      actionpack
-      activesupport
-      mandrill-api (~> 1.0.9)
     meta_request (0.3.4)
       callsite (~> 0.0, >= 0.0.11)
       rack-contrib (~> 1.1)
@@ -195,6 +187,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sendgrid (1.2.4)
+      json
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -242,7 +236,6 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
-  mandrill_mailer
   meta_request
   pg
   pry-rails
@@ -251,7 +244,11 @@ DEPENDENCIES
   rails (= 4.2.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  sendgrid
   simple_form
   spring
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.11.2

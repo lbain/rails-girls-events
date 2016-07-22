@@ -14,7 +14,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -36,10 +36,20 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  config.action_mailer.perform_deliveries = true
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
  config.action_mailer.delivery_method = :test
+   ActionMailer::Base.smtp_settings = {
+    :user_name => ENV['USERNAME'],
+    :password  => ENV['PASSWORD'],
+    :port      => 3000,
+    :domain    => 'localhost',
+    :address   => 'smtp.sendgrid.net',
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 
- config.mandrill_mailer.default_url_options = { host: 'localhost' }
 end
