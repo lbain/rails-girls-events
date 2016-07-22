@@ -6,7 +6,7 @@ class ApplicationsMailer < ActionMailer::Base
   def application_received(application)
     mail(
       subject: 'Thanks for applying!',
-      to: user_info(application),
+      to: application.user.email,
       vars: {
         'NAME' => application.user.name,
         'SUBJECT' => 'Thanks for applying!'
