@@ -11,6 +11,8 @@
 class Event < ActiveRecord::Base
   validates :title, presence: true
 
+  validate :current_event
+
   has_many :applications
 
   # for the data page
@@ -76,4 +78,13 @@ class Event < ActiveRecord::Base
   def xl_count
     self.applications.where(tshirt_size: 'xl').count
   end
+
+  def current_event
+    return unless live?
+
+    if Event.where(live: true).exists?
+      errors['live'] = "An event is already live, only one live event allowed at a time"
+    end
+  end
+
 end

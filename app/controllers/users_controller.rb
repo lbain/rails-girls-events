@@ -16,10 +16,7 @@ class UsersController < ApplicationController
     end
     application = @user.applications.last
 
-    # TODO: This should be a (hidden?) field element based on when the applications open
-    # This is much easier for now, but will only support one event at a time
-    # and the hard coding would need to be updated for the next event
-    application.event = Event.where("title like ?", "%April 1-2, 2016%").first
+    application.event = Event.where(:live => true).first
 
     if @user.valid? && application.valid?
       @user.save
