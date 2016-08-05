@@ -1,8 +1,0 @@
-To create a new rails girls event go to 
-`/events` and click 'Create'
-
-The event will require a title, and asks whether it will be the current event or not.
-
-The current event will be the event that all new applications will be subscribed to.
-
-You will not be allowed to have more than one event as 'current'.

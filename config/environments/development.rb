@@ -44,10 +44,10 @@ Rails.application.configure do
  config.action_mailer.delivery_method = :test
    ActionMailer::Base.smtp_settings = {
     :user_name => ENV['USERNAME'],
-    :password  => ENV['PASSWORD'],
-    :port      => 3000,
+    :password  => ENV['GMAIL_PASSWORD'],
+    :port      => 587,
     :domain    => 'localhost',
-    :address   => 'smtp.sendgrid.net',
+    :address   => 'smtp.gmail.com',
     :authentication => :plain,
     :enable_starttls_auto => true
   }
