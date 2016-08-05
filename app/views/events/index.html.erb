@@ -7,14 +7,19 @@
       <th>Title</th>
       <th>Applicants</th>
       <th>Data</th>
+      <th></th>
+      <th></th>
     </tr>
     <% @events.each do |event| %>
       <tr>
         <td><%= event.title %></td>
         <td><%= link_to 'Applicants', event_path(event) %></td>
         <td><%=link_to 'Data', event_data_path(event) %></td>
+        <td><%= link_to 'Edit', edit_event_path(event), method: :get %></td>
+        <td><%= "Current event" if event.live? %>
       </tr>
     <% end %>
   </table>
+  <%= link_to 'Create Event', new_event_path, method: :get, class: "btn btn-secondary" %>
 </div>
 

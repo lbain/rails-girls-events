@@ -17,7 +17,8 @@
       </div>
     </div>
 </fieldset>
-<fieldset class="steps-form__step">
+<!--  Rails Girls Experience, only need if running more than one track -->
+<!-- <fieldset class="steps-form__step">
   <div class="container_12">
     <span class="steps-form__step__step-number">2</span>
     <h1>Rails Girls experience</h1>
@@ -48,10 +49,10 @@
       </div>
     </div>
   </div>
-</fieldset>
+</fieldset> -->
 <fieldset class="steps-form__step">
   <div class="container_12">
-    <span class="steps-form__step__step-number">3</span>
+    <span class="steps-form__step__step-number">2</span>
     <h1>Tell us a bit more about yourself</h1>
     <div class="steps-form__step__field-group">
       <div class="steps-form__step__field">
@@ -74,7 +75,7 @@
 </fieldset>
 <fieldset class="steps-form__step">
   <div class="container_12">
-    <span class="steps-form__step__step-number">4</span>
+    <span class="steps-form__step__step-number">3</span>
     <h1>Almost there</h1>
     <div class="steps-form__step__fields">
       <div class="steps-form__step__field-group">
@@ -87,7 +88,8 @@
         </div>
       </div>
     </div>
-    <div class="steps-form__step__field-group">
+    <!--  tshirt size only care if ordering them later  -->
+<!--     <div class="steps-form__step__field-group">
       <div class="steps-form__step__field">
         <%= a.input :tshirt_size,
             label: 'T-shirt size',
@@ -99,7 +101,7 @@
              ["X-Large", 'xl']],
             as: :radio_buttons %>
       </div>
-    </div>
+    </div> -->
     <div class="steps-form__step__fields">
       <div class="steps-form__step__field-group">
           <%= a.input :extra_info, label: "Anything else we need to know?", class: 'steps-form__step__field' %>
