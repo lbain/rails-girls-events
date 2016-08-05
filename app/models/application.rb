@@ -21,8 +21,8 @@
 #
 
 class Application < ActiveRecord::Base
-  validates :track, :previous_attendance, :programming_experience,
-            :reason, :tshirt_size, :gender, presence: true
+  validates :previous_attendance, :programming_experience,
+            :reason, :gender, presence: true
   validates_inclusion_of :over_18, in: [true, false]
 
 
