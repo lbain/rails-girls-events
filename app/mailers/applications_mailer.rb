@@ -1,21 +1,18 @@
 class ApplicationsMailer < ActionMailer::Base
-  include SendGrid
 
   default from: 'railsgirlssyd@gmail.com'
 
   def application_received(application)
+    @application = application
     mail(
       subject: 'Thanks for applying!',
-      to: application.user.email,
-      vars: {
-        'NAME' => application.user.name,
-        'SUBJECT' => 'Thanks for applying!'
-      },
+      to: @application.user.email,
       important: true,
       inline_css: true)
   end
 
   def application_success(application)
+    @application = application
     options = {}
     if !Rails.env.production?
       options[:port] = 3000
@@ -37,6 +34,7 @@ class ApplicationsMailer < ActionMailer::Base
   def application_rejected(application)
     # always send the rejection emails to us, if we're happy with what it says
     # then forward them on, but otherwise re-write as needed
+    @application = application
     user_info = user_info(application).merge({email: 'railsgirlssyd@gmail.com'})
 
     mail(
