@@ -1,5 +1,7 @@
 class ApplicationsMailer < ActionMailer::Base
 
+  include SendGrid
+  
   default from: 'railsgirlssyd@gmail.com'
 
   def application_received(application)
