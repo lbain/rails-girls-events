@@ -23,12 +23,6 @@ class ApplicationsMailer < ActionMailer::Base
     mail(
       subject: 'Welcome to Rails Girls!',
       to: @application.user.email,
-      vars: {
-        'NAME' => application.user.name,
-        'SUBJECT' => 'Welcome to Rails Girls!',
-        'ACCEPT_LINK' => application_status_url(application, 'accepted', options),
-        'DECLINE_LINK' => application_status_url(application, 'declined', options),
-      },
       important: true,
       inline_css: true)
   end
@@ -43,10 +37,6 @@ class ApplicationsMailer < ActionMailer::Base
       template: 'application-rejected',
       subject: 'Your Rails Girls application was not successful',
       to: @application.user.email,
-      vars: {
-        'NAME' => application.user.name,
-        'SUBJECT' => 'Your Rails Girls application was not successful'
-      },
       important: true,
       inline_css: true)
   end
