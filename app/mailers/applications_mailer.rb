@@ -1,5 +1,7 @@
 class ApplicationsMailer < ActionMailer::Base
 
+  include SendGrid
+  
   default from: 'railsgirlssyd@gmail.com'
 
   def application_received(application)
@@ -20,7 +22,7 @@ class ApplicationsMailer < ActionMailer::Base
 
     mail(
       subject: 'Welcome to Rails Girls!',
-      to: user_info(application),
+      to: @application.user.email,
       vars: {
         'NAME' => application.user.name,
         'SUBJECT' => 'Welcome to Rails Girls!',
@@ -40,7 +42,7 @@ class ApplicationsMailer < ActionMailer::Base
     mail(
       template: 'application-rejected',
       subject: 'Your Rails Girls application was not successful',
-      to: user_info,
+      to: @application.user.email,
       vars: {
         'NAME' => application.user.name,
         'SUBJECT' => 'Your Rails Girls application was not successful'
